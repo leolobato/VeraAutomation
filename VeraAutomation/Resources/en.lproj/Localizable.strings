@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  VeraAutomation
+
+  Created by Scott Gruby on 12/5/13.
+  Copyright (c) 2013 Gruby Solutions. All rights reserved.
+*/
+
+"CANCEL_BUTTON_TITLE" = "Cancel";
+"LOGIN_BUTTON_TITLE" = "Login";
+"LOGIN_TITLE" = "Vera Login";
+"LOGIN_MESSAGE" = "Please enter your login information to connect to your Vera device.";
+"SWITCHES_TITLE" = "Switches";
+"AUDIO_TITLE" = "Audio";
+"COMMAND_SENT_TITLE" = "Command Sent";
+"COMMAND_SENT_MESSAGE_ON" = "%@ has been turned on.";
+"COMMAND_SENT_MESSAGE_OFF" = "%@ has been turned off.";
+"COMMAND_SENT_MESSAGE_LEVEL" = "%@ has been set to %d %%.";
+"COMMAND_SENT_VOLUME_UP" = "%@ volume has been increased.";
+"COMMAND_SENT_VOLUME_DOWN" = "%@ volume has been decreased.";
+"COMMAND_SENT_INPUT_1" = "%@ has been set to server 1";
+"COMMAND_SENT_INPUT_2" = "%@ has been set to server 2";
+"COMMAND_SENT_INPUT_3" = "%@ has been set to server 3";
+
