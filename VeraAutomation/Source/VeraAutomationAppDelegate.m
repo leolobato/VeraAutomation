@@ -155,7 +155,11 @@ static NSTimeInterval sTimeForCheck = 4.0f;
 			
 			if (error)
 			{
-				if ([error.domain isEqualToString:kVeraAPIErrorDomain] && error.code == VeraAPIIncorrectLogin)
+				if ([error.domain isEqualToString:NSURLErrorDomain] && error.code == NSURLErrorCancelled)
+				{
+					DebugLog(@"The request was cancelled.");
+				}
+				else if ([error.domain isEqualToString:kVeraAPIErrorDomain] && error.code == VeraAPIIncorrectLogin)
 				{
 					weakSelf.api.username = nil;
 					weakSelf.api.password = nil;

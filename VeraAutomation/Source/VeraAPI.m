@@ -27,7 +27,6 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 @end
 
 @interface VeraHTTPOperationManager : AFHTTPRequestOperationManager
-
 @end
 
 @implementation VeraAPI
@@ -63,7 +62,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	
 	VeraAPI __weak *weakSelf = self;
 	NSString *requestString = [NSString stringWithFormat:@"https://sta%lu.mios.com/locator_json.php?username=%@", (unsigned long) serverNumber, weakSelf.username];
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, NSArray *responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, NSArray *responseObject) {
 		DebugLog(@"responseObject: %@", [responseObject componentsJoinedByString:@"\n"]);
 		weakSelf.unit = [responseObject firstObject];
 		if (handler)
@@ -78,6 +77,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(error);
 		}
 	}];
+	
+	[self checkForOperationCompletion:operation];
 }
 
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler
@@ -124,8 +125,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		manager.responseSerializer = [VeraDataResponseSerializer serializer];
 		
 		VeraAPI __weak *weakSelf = self;
-		[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, VeraUnitInfo *responseObject) {
-			DebugLog(@"responseObject for polling: %@", responseObject);
+		AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, VeraUnitInfo *responseObject) {
+			DebugLog(@"responseObject for polling: %@ %@", operation.request, responseObject);
 			//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
 			BOOL fullReload = NO;
 			if (responseObject.full || weakSelf.unitInfo == nil)
@@ -161,7 +162,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			}
 			weakSelf.pollingUnit = NO;
 		}];
-
+		
+		[self checkForOperationCompletion:operation];
 	}
 	else
 	{
@@ -171,6 +173,25 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			self.pollingUnit = NO;
 		}
 	}
+}
+
+- (void) checkForOperationCompletion:(AFHTTPRequestOperation *) operation
+{
+	// Kill the request after 30 seconds. NSURLConnection's timeout doesn't work how you'd
+	// think it works. The timeout is for data not being received, but isn't a connect timeout.
+	// We really want a connect timeout.
+	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC);
+	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+		if (operation.response == nil)
+		{
+			DebugLog(@"Cancelling: %@", operation);
+			[operation cancel];
+		}
+		else
+		{
+			DebugLog(@"Not cancelling: %@", operation);
+		}
+	});
 }
 
 - (VeraRoom *) roomWithIdentifier:(NSUInteger) identifier
@@ -218,7 +239,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		
 	}
 	
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -233,6 +254,9 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+	
+	[self checkForOperationCompletion:operation];
+
 }
 
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
@@ -255,7 +279,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 
 	}
 
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -270,6 +294,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+
+	[self checkForOperationCompletion:operation];
 }
 
 - (void) setAudioDeviceVolume:(BOOL) up device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
@@ -301,7 +327,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		requestString = [requestString stringByAppendingString:@"Down"];
 	}
 
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -316,6 +342,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+
+	[self checkForOperationCompletion:operation];
 }
 
 - (void) setAudioDeviceInput:(NSInteger) input device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
@@ -337,7 +365,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		
 	}
 	
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -352,6 +380,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+
+	[self checkForOperationCompletion:operation];
 }
 
 - (void) setAllAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
@@ -382,7 +412,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		requestString = [requestString stringByAppendingString:@"AllOff"];
 	}
 	
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -396,6 +426,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+
+	[self checkForOperationCompletion:operation];
 }
 
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level withHandler:(void (^)(NSError *error)) handler
@@ -420,7 +452,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	
 	DebugLog(@"sending request: %@", requestString);
 	
-	[manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
 		if (handler)
 		{
@@ -435,6 +467,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			handler(nil);
 		}
 	}];
+	
+	[self checkForOperationCompletion:operation];
 }
 
 
@@ -528,3 +562,4 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
     return operation;
 }
 @end
+
