@@ -17,6 +17,10 @@ Feedback
 ==========
 Please contact me directly at <veraautomation@grubysolutions.com> or open a GitHub issue.
 
+Assistance
+==========
+I'm not a graphic designer and the device cells could use on and off icons. If you have any artistic ability and want to design icons that can be put into the public domain, please let me know. (I want to have the icons in the public domain so that I can keep the source on GitHub without having to deal with licensing issues; if you want a different license for your icons, but are good with them being included in this source, that's fine as well.)
+
 
 Credits
 ==========
