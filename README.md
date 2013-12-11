@@ -5,6 +5,14 @@ This is a basic iOS app for controlling a Vera automation system. It was designe
 
 This is a work in progress. The iPhone part is nearing completion; the iPad part hasn't been started.
 
+Setup
+==========
+This project uses a number of other open source projects and references them using [CocoaPods](http://www.cocoapods.org/). After grabbing the source, switch to the directory and type:
+
+	pod install
+	
+Then use the VeraAutomation.xcworkspace file when opening the project. If you don't have CocoaPods installed, please see the CocoaPods website for more information.
+
 Feedback
 ==========
 Please contact me directly at <veraautomation@grubysolutions.com> or open a GitHub issue.
@@ -12,6 +20,8 @@ Please contact me directly at <veraautomation@grubysolutions.com> or open a GitH
 
 Credits
 ==========
+Icons
+------
 Thermometer icon by Marco Olgio and is in the public domain.
 
 Light Bulb icon by OCHA Visual Information Unit and is in the public domain.
@@ -20,7 +30,25 @@ Radio icon by Camilo Villegas and is in the public domain.
 
 Leaf icon by Arthy.P and is in the public domain.
 
-ActionSheetDelegate by Joshua Caswell and is in the public domain.
+Source Code
+-
+[ActionSheetDelegate](https://github.com/woolsweater/ActionSheetDelegate) by [Joshua Caswell](woolsweatersoft@gmail.com) and is in the public domain.
+
+[AFNetworking](https://github.com/AFNetworking/AFNetworking) by [Mattt Thompson](m@mattt.me)
+
+[HexColors](https://github.com/mRs-/HexColors) by [Marius Landwehr] (marius.landwehr@gmail.com) and [holgersindbaek] (holgersindbaek@gmail.com)
+
+[HTProgressHUD](https://github.com/Hardtack/HTProgressHUD) by [GunWoo Choi](6566gun@gmail.com)
+
+[TSMessages](https://github.com/toursprung/TSMessages) by [Felix Krause](krausefx@gmail.com)
+
+[PDKeychainBindingsController](https://github.com/carlbrown/PDKeychainBindingsController) by [Carl Brown](carlb@pdagent.com)
+
+ToDo
+==============
+* Work on iPad version
+* Fix issues where login prompt comes up on failed connection
+* Add in climate control
 
 License
 ==========
@@ -35,3 +63,6 @@ If you would like to use the code in a commercial project, please contact me at 
 You may not bundle the application as is (or remove pieces and bundle it) and distribute it.
 
 This license is pretty simple and if you have any questions, please contact me.
+
+
+See individual projects for licenses for AFNetworking, HexColors, HTProgressHUD, TSMessages, and PDKeychainBindingsController.
