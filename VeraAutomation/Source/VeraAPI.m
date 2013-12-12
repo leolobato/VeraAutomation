@@ -180,7 +180,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	// Kill the request after 30 seconds. NSURLConnection's timeout doesn't work how you'd
 	// think it works. The timeout is for data not being received, but isn't a connect timeout.
 	// We really want a connect timeout.
-	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC);
+	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC);
 	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 		if (operation.response == nil)
 		{
@@ -471,7 +471,81 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	[self checkForOperationCompletion:operation];
 }
 
+- (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
+{
+	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
+	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+	
+	NSString *requestString = nil;
+	if ([self.unit.ipAddress length])
+	{
+		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)fanMode];
+	}
+	else
+	{
+		VeraForwardServer *server = [self.unit.forwardServers firstObject];
+		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)fanMode];
+		
+	}
+	
+	DebugLog(@"sending request: %@", requestString);
+	
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		DebugLog(@"responseObject: %@", responseObject);
+		if (handler)
+		{
+			handler(nil);
+		}
+		
+		//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		DebugLog(@"failure: %@", error);
+		if (handler)
+		{
+			handler(nil);
+		}
+	}];
+	
+	[self checkForOperationCompletion:operation];
+}
 
+- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
+{
+	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
+	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+	
+	NSString *requestString = nil;
+	if ([self.unit.ipAddress length])
+	{
+		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)temperature];
+	}
+	else
+	{
+		VeraForwardServer *server = [self.unit.forwardServers firstObject];
+		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)temperature];
+		
+	}
+	
+	DebugLog(@"sending request: %@", requestString);
+	
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		DebugLog(@"responseObject: %@", responseObject);
+		if (handler)
+		{
+			handler(nil);
+		}
+		
+		//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		DebugLog(@"failure: %@", error);
+		if (handler)
+		{
+			handler(nil);
+		}
+	}];
+	
+	[self checkForOperationCompletion:operation];
+}
 @end
 
 @implementation VeraUserResponseSerializer

@@ -234,6 +234,25 @@ static NSTimeInterval sTimeForCheck = 4.0f;
 	}];
 }
 
+- (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device
+{
+	VeraAutomationAppDelegate __weak *weakSelf = self;
+	[self.api setFanMode:fanMode device:device withHandler:^(NSError *error) {
+		weakSelf.lastUnitCheck = nil;
+		[weakSelf updateUnitInfo];
+	}];
+}
+
+- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device
+{
+	VeraAutomationAppDelegate __weak *weakSelf = self;
+	[self.api setTemperature:temperature device:device withHandler:^(NSError *error) {
+		weakSelf.lastUnitCheck = nil;
+		[weakSelf updateUnitInfo];
+	}];
+}
+
+
 + (void)showNotificationWithTitle:(NSString *)title
                          subtitle:(NSString *)subtitle
                              type:(TSMessageNotificationType)type

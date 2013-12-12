@@ -16,6 +16,12 @@
 
 extern NSString *kVeraAPIErrorDomain;
 
+typedef NS_ENUM(NSInteger, VeraFanMode) {
+    VeraFanModeOff          = 0,
+	VeraFanModeOn,
+	VeraFanModeAuo
+};
+
 typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
     VeraAPIIncorrectLogin          = -1
 };
@@ -35,5 +41,7 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) setAllAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setAudioDeviceVolume:(BOOL) up device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setAudioDeviceInput:(NSInteger) input device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
+- (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
+- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 @end
 

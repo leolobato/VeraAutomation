@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TSMessage.h"
+#import "VeraAPI.h"
 
-@class VeraAPI;
 @class VeraDevice;
 
 @interface VeraAutomationAppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,11 +17,18 @@
 @property (nonatomic, strong) VeraAPI *api;
 - (void) handleLogin;
 + (VeraAutomationAppDelegate *) appDelegate;
+
+// All of the API calls are run through the app delegate so that the timer for updating
+// the information can be reset and a new call can be made to get current status
 - (void) toggleDevice:(VeraDevice *) device;
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device;
 - (void) setAudioDeviceVolume:(BOOL) up device:(VeraDevice *) device;
 - (void) setAudioDeviceInput:(NSInteger) input device:(VeraDevice *) device;
 - (void) setAllAudioDevicePower:(BOOL) on device:(VeraDevice *) device;
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level;
-+ (void)showNotificationWithTitle:(NSString *)title subtitle:(NSString *)subtitle type:(TSMessageNotificationType)type;
+- (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device;
+- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device;
+
+
++ (void) showNotificationWithTitle:(NSString *)title subtitle:(NSString *)subtitle type:(TSMessageNotificationType)type;
 @end
