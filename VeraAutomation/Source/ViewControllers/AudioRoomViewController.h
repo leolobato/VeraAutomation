@@ -11,4 +11,5 @@
 @class VeraRoom;
 @interface AudioRoomViewController : UICollectionViewController
 @property (nonatomic, strong) VeraRoom *room;
+- (void) refreshRoom;
 @end

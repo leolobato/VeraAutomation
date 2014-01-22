@@ -13,7 +13,7 @@
 #import "VeraAPI.h"
 #import "VeraUnitInfo.h"
 
-@interface AudioRoomsViewController ()
+@interface AudioRoomsViewController () <UISplitViewControllerDelegate>
 @property (nonatomic, strong) NSArray *rooms;
 @end
 
@@ -52,13 +52,21 @@
 
 - (void) unitInfoChanged:(NSNotification *) notification
 {
-	[self.tableView reloadData];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	{
+		[self.tableView reloadData];
+	}
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		self.splitViewController.delegate = self;
+	}
+
 	self.title = NSLocalizedString(@"AUDIO_TITLE", nil);
 	[self setupRooms];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unitInfoChanged:) name:kDeviceUpdatedNotification object:nil];
@@ -88,6 +96,34 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		VeraRoom *room = nil;
+		if (indexPath != nil && indexPath.row < [self.rooms count])
+		{
+			room = self.rooms[indexPath.row];
+		}
+		
+		UISplitViewController *split = self.splitViewController;
+		if (split)
+		{
+			if ([split.viewControllers count] == 2)
+			{
+				id vc = split.viewControllers[1];
+				if ([vc isKindOfClass:[UINavigationController class]])
+				{
+					// VC #1 is the RoomDevicesViewController
+					AudioRoomViewController *roomDevicesVC = (AudioRoomViewController *) ((UINavigationController *) vc).topViewController;
+					roomDevicesVC.room = room;
+					[roomDevicesVC refreshRoom];
+				}
+			}
+		}
+	}
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -107,5 +143,11 @@
 		
 	}
 }
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+	return NO;
+}
+
 
 @end

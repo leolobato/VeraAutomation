@@ -13,12 +13,12 @@
 "SWITCHES_TITLE" = "Switches";
 "AUDIO_TITLE" = "Audio";
 "COMMAND_SENT_TITLE" = "Command Sent";
-"COMMAND_SENT_MESSAGE_ON" = "%@ has been turned on.";
-"COMMAND_SENT_MESSAGE_OFF" = "%@ has been turned off.";
-"COMMAND_SENT_MESSAGE_LEVEL" = "%@ has been set to %d %%.";
-"COMMAND_SENT_VOLUME_UP" = "%@ volume has been increased.";
-"COMMAND_SENT_VOLUME_DOWN" = "%@ volume has been decreased.";
-"COMMAND_SENT_INPUT_1" = "%@ has been set to server 1";
-"COMMAND_SENT_INPUT_2" = "%@ has been set to server 2";
-"COMMAND_SENT_INPUT_3" = "%@ has been set to server 3";
+"COMMAND_SENT_MESSAGE_ON_%@" = "%@ has been turned on.";
+"COMMAND_SENT_MESSAGE_OFF_%@" = "%@ has been turned off.";
+"COMMAND_SENT_MESSAGE_LEVEL_%@_%ld" = "%@ has been set to %d %%.";
+"COMMAND_SENT_VOLUME_UP_%@" = "%@ volume has been increased.";
+"COMMAND_SENT_VOLUME_DOWN_%@" = "%@ volume has been decreased.";
+"COMMAND_SENT_INPUT_1_%@" = "%@ has been set to server 1";
+"COMMAND_SENT_INPUT_2_%@" = "%@ has been set to server 2";
+"COMMAND_SENT_INPUT_3_%@" = "%@ has been set to server 3";
 

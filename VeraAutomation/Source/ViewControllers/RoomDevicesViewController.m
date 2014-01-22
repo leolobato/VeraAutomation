@@ -24,6 +24,11 @@ static NSString *kLevelKey = @"Level";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self refreshRoom];
+}
+
+- (void) refreshRoom
+{
 	self.title = self.room.name;
 	NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room];
 	NSMutableArray *newArray = [NSMutableArray array];
@@ -98,11 +103,11 @@ static NSString *kLevelKey = @"Level";
 		NSString *subtitleString = nil;
 		if (device.status)
 		{
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_OFF", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_OFF_%@", nil), device.name];
 		}
 		else
 		{
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_ON", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_ON_%@", nil), device.name];
 		}
 		[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
 									subtitle:subtitleString
@@ -117,7 +122,7 @@ static NSString *kLevelKey = @"Level";
 	[[VeraAutomationAppDelegate appDelegate] setDeviceLevel:device level:level];
 	
 	NSString *subtitleString = nil;
-	subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_LEVEL", nil), device.name, level];
+	subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_LEVEL_%@_%ld", nil), device.name, (long)level];
 
 	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
 								subtitle:subtitleString

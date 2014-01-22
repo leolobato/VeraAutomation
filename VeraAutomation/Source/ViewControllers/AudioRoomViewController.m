@@ -22,6 +22,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self refreshRoom];
+}
+
+- (void) refreshRoom
+{
 	self.title = self.room.name;
 	NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room];
 	NSMutableArray *newArray = [NSMutableArray array];
@@ -35,6 +40,7 @@
 	self.devices = newArray;
 	[self.collectionView reloadData];
 }
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -74,7 +80,7 @@
 			{
 				[[VeraAutomationAppDelegate appDelegate] setAudioDevicePower:NO device:device];
 			}
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_OFF", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_OFF_%@", nil), device.name];
 		}
 		else if (tag == 1)
 		{
@@ -86,32 +92,32 @@
 			{
 				[[VeraAutomationAppDelegate appDelegate] setAudioDevicePower:YES device:device];
 			}
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_ON", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_MESSAGE_ON_%@", nil), device.name];
 		}
 		else if (tag == 2)
 		{
 			[[VeraAutomationAppDelegate appDelegate] setAudioDeviceVolume:NO device:device];
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_VOLUME_DOWN", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_VOLUME_DOWN_%@", nil), device.name];
 		}
 		else if (tag == 3)
 		{
 			[[VeraAutomationAppDelegate appDelegate] setAudioDeviceVolume:YES device:device];
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_VOLUME_UP", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_VOLUME_UP_%@", nil), device.name];
 		}
 		else if (tag == 4)
 		{
 			[[VeraAutomationAppDelegate appDelegate] setAudioDeviceInput:1 device:device];
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_1", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_1_%@", nil), device.name];
 		}
 		else if (tag == 5)
 		{
 			[[VeraAutomationAppDelegate appDelegate] setAudioDeviceInput:2 device:device];
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_2", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_2_%@", nil), device.name];
 		}
 		else if (tag == 6)
 		{
 			[[VeraAutomationAppDelegate appDelegate] setAudioDeviceInput:3 device:device];
-			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_3", nil), device.name];
+			subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_INPUT_3_%@", nil), device.name];
 		}
 		
 		[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)

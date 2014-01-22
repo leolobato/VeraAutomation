@@ -10,4 +10,5 @@
 @class VeraRoom;
 @interface RoomDevicesViewController : UICollectionViewController
 @property (nonatomic, strong) VeraRoom *room;
+- (void) refreshRoom;
 @end
