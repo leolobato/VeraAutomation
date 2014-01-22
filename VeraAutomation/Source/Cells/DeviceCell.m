@@ -8,6 +8,7 @@
 
 #import "DeviceCell.h"
 #import "VeraDevice.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DeviceCell ()
 @property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
@@ -29,6 +30,7 @@
 
 - (void) setupCell
 {
+	self.layer.cornerRadius = 5.0f;
 	self.deviceNameLabel.text = self.device.name;
 	self.statusLabel.text = [NSString stringWithFormat:@"Status: %ld", (long)self.device.status];
 	

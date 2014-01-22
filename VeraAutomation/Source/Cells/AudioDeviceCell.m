@@ -8,6 +8,7 @@
 
 #import "AudioDeviceCell.h"
 #import "VeraDevice.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AudioDeviceCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,8 +21,15 @@
 @end
 
 @implementation AudioDeviceCell
+- (void)prepareForReuse
+{
+	self.device = nil;
+	[self setupCell];
+}
+
 - (void) setupCell
 {
+	self.layer.cornerRadius = 5.0f;
 	self.titleLabel.text = self.device.name;
 	self.server1Button.hidden = self.device.parent == 0;
 	self.server2Button.hidden = self.device.parent == 0;
