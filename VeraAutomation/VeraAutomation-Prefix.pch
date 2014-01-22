@@ -16,10 +16,14 @@
 	#import "Defines.h"
 	#import "PDKeychainBindingsController.h"
 	#import "VeraAutomationAppDelegate.h"
+	#import "DDLog.h"
 #endif
 
-#ifdef DEBUG
-#define DebugLog(fmt, ...) NSLog((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#define DebugLog(...)
-#endif
+#define DebugLog(fmt, ...) DDLogVerbose((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DebugLogError(fmt, ...) DDLogError((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DebugLogWarn(fmt, ...) DDLogWarn((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DebugLogInfo(fmt, ...) DDLogInfo((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DebugLogDebug(fmt, ...) DDLogDebug((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DebugLogVerbose(fmt, ...) DDLogVerbose((@"%s (%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+extern int ddLogLevel;

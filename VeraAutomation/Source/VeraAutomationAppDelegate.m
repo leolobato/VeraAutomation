@@ -12,8 +12,12 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "VeraAPI.h"
 #import "VeraUnitInfo.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
 
 static NSTimeInterval sTimeForCheck = 4.0f;
+
+int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface VeraAutomationAppDelegate ()
 @property (nonatomic, strong) NSDate *lastUnitCheck;
@@ -30,7 +34,13 @@ static NSTimeInterval sTimeForCheck = 4.0f;
 
 	self.periodicTimer = [NSTimer scheduledTimerWithTimeInterval:sTimeForCheck target:self selector:@selector(updateUnitInfo) userInfo:nil repeats:YES];
 	[self performSelector:@selector(handleLogin) withObject:nil afterDelay:1.0f];
-    return YES;
+
+#ifdef DEBUG
+	[DDLog addLogger:[DDASLLogger sharedInstance] withLogLevel:LOG_LEVEL_VERBOSE];
+	[DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:LOG_LEVEL_VERBOSE];
+#endif
+
+	return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
