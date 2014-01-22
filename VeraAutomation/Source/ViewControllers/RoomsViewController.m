@@ -49,7 +49,10 @@
 - (void) initialUnitInfo:(NSNotification *) notification
 {
 	[self setupRooms];
-	[self.navigationController popToRootViewControllerAnimated:YES];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	{
+		[self.navigationController popToRootViewControllerAnimated:YES];
+	}
 }
 
 - (void) unitInfoChanged:(NSNotification *) notification
@@ -58,16 +61,29 @@
 	{
 		[self.tableView reloadData];
 	}
+	else
+	{
+		if ([self.rooms count] == 0)
+		{
+			[self.tableView reloadData];
+		}
+	}
+}
+
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
+
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		self.splitViewController.delegate = self;
+	}
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-	{
-		self.splitViewController.delegate = self;
-	}
-	
+
 	self.title = NSLocalizedString(@"SWITCHES_TITLE", nil);
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unitInfoChanged:) name:kDeviceUpdatedNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(initialUnitInfo:) name:kDeviceInfoNotification object:nil];

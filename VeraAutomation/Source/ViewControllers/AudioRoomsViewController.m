@@ -56,6 +56,23 @@
 	{
 		[self.tableView reloadData];
 	}
+	else
+	{
+		if ([self.rooms count] == 0)
+		{
+			[self.tableView reloadData];
+		}
+	}
+}
+
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		self.splitViewController.delegate = self;
+	}
 }
 
 - (void)viewDidLoad
