@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		363A6CBEC52E42188D533D6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C222DC40E4365938179AE /* libPods.a */; };
+		D20E2376189223F20093BD42 /* Exclusions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20E2375189223F20093BD42 /* Exclusions.plist */; };
 		D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24541731857F87500FE9C1A /* ActionSheetDelegate.m */; };
 		D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D245417B1857F87900FE9C1A /* AlertViewDelegate.m */; };
 		D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D268281D1854322C0056620D /* AudioDeviceCell.m */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		725C222DC40E4365938179AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		908E49C16F894407BB3D8A1C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D20E2375189223F20093BD42 /* Exclusions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exclusions.plist; sourceTree = "<group>"; };
 		D24541721857F87500FE9C1A /* ActionSheetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDelegate.h; sourceTree = "<group>"; };
 		D24541731857F87500FE9C1A /* ActionSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDelegate.m; sourceTree = "<group>"; };
 		D245417A1857F87900FE9C1A /* AlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewDelegate.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				D2AC0F5D18517BED00D3AFD4 /* InfoPlist.strings */,
 				D2AC0F6018517BF300D3AFD4 /* Images.xcassets */,
 				D2AC0F6218517C0300D3AFD4 /* Localizable.strings */,
+				D20E2375189223F20093BD42 /* Exclusions.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				D2AC0F6418517C0300D3AFD4 /* Localizable.strings in Resources */,
 				D2AC0F5C18517BE800D3AFD4 /* Main_iPhone.storyboard in Resources */,
 				D2AC0F6118517BF300D3AFD4 /* Images.xcassets in Resources */,
+				D20E2376189223F20093BD42 /* Exclusions.plist in Resources */,
 				D2AC0F5F18517BED00D3AFD4 /* InfoPlist.strings in Resources */,
 				D2AC0F5B18517BE800D3AFD4 /* Main_iPad.storyboard in Resources */,
 			);

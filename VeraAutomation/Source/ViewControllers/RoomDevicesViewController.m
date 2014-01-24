@@ -30,16 +30,7 @@ static NSString *kLevelKey = @"Level";
 - (void) refreshRoom
 {
 	self.title = self.room.name;
-	NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room];
-	NSMutableArray *newArray = [NSMutableArray array];
-	for (VeraDevice *device in devices)
-	{
-		if ([device isSwitch])
-		{
-			[newArray addObject:device];
-		}
-	}
-	self.devices = newArray;
+	self.devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room forType:VeraDeviceTypeSwitch];
 	DebugLog(@"devices: %@", [self.devices componentsJoinedByString:@"\n"]);
 	[self.collectionView reloadData];
 }

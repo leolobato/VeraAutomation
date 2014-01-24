@@ -207,14 +207,40 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	return nil;
 }
 
-- (NSArray *) devicesForRoom:(VeraRoom *) inRoom
+- (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType
 {
 	NSMutableArray *devices = [NSMutableArray array];
 	for (VeraDevice *device in self.unitInfo.devices)
 	{
 		if (device.room == inRoom.roomIdentifier)
 		{
-			[devices addObject:device];
+			// Check the device type before adding it
+			switch (deviceType)
+			{
+				case VeraDeviceTypeSwitch:
+				{
+					if (![device.name isEqualToString:@"Equipment Outlet"] && [device.name rangeOfString:@"Repeater" options:NSCaseInsensitiveSearch].location == NSNotFound && (device.category == 3 || device.category == 2))
+					{
+						[devices addObject:device];
+					}
+
+					break;
+				}
+
+				case VeraDeviceTypeAudio:
+				{
+					if (device.name && [device.name rangeOfString:@"Audio" options:NSCaseInsensitiveSearch].location != NSNotFound)
+					{
+						[devices addObject:device];
+					}
+					break;
+				}
+
+				default:
+				{
+					break;
+				}
+			}
 		}
 	}
 	

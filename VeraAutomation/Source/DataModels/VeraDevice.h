@@ -7,6 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
+    VeraDeviceTypeUnknown			= -1,
+	VeraDeviceTypeSwitch			= 0,
+	VeraDeviceTypeAudio				= 1
+};
 
 
 @interface VeraDevice : NSObject <NSCoding>
@@ -53,6 +58,4 @@
 + (VeraDevice *)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;
-- (BOOL) isSwitch;
-- (BOOL) isAudio;
 @end

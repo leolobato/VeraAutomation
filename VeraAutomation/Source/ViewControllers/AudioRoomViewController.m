@@ -28,16 +28,7 @@
 - (void) refreshRoom
 {
 	self.title = self.room.name;
-	NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room];
-	NSMutableArray *newArray = [NSMutableArray array];
-	for (VeraDevice *device in devices)
-	{
-		if ([device isAudio])
-		{
-			[newArray addObject:device];
-		}
-	}
-	self.devices = newArray;
+	self.devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room forType:VeraDeviceTypeAudio];
 	[self.collectionView reloadData];
 }
 

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import "VeraDevice.h"
 
 @class VeraUnit;
 @class VeraUnitInfo;
 @class VeraRoom;
-@class VeraDevice;
 
 extern NSString *kVeraAPIErrorDomain;
 
@@ -34,7 +34,6 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) getVeraInformationWithHandler:(void (^)(NSError *error)) handler;
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler;
 - (VeraRoom *) roomWithIdentifier:(NSUInteger) identifier;
-- (NSArray *) devicesForRoom:(VeraRoom *) inRoom;
 - (void) toggleDevice:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level withHandler:(void (^)(NSError *error)) handler;
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
@@ -43,5 +42,6 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) setAudioDeviceInput:(NSInteger) input device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
+- (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType;
 @end
 

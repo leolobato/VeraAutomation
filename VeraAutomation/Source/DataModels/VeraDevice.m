@@ -374,25 +374,4 @@ NSString *const kVeraDevicesIp = @"ip";
     [aCoder encodeObject:_ip forKey:kVeraDevicesIp];
 }
 
-- (BOOL) isSwitch
-{
-	if ([self.name isEqualToString:@"Equipment Outlet"] || [self.name rangeOfString:@"Repeater" options:NSCaseInsensitiveSearch].location != NSNotFound)
-	{
-		return NO;
-	}
-	
-	return self.category == 3 || self.category == 2;
-}
-
-- (BOOL) isAudio
-{
-	if (self.name && [self.name rangeOfString:@"Audio" options:NSCaseInsensitiveSearch].location != NSNotFound)
-	{
-		return YES;
-	}
-	
-	return NO;
-}
-
-
 @end

@@ -25,19 +25,8 @@
 	NSMutableArray *rooms = [NSMutableArray array];
 	for (VeraRoom *room in [VeraAutomationAppDelegate appDelegate].api.unitInfo.rooms)
 	{
-		BOOL addRoom = NO;
-		NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:room];
-		
-		for (VeraDevice *device in devices)
-		{
-			if ([device isSwitch])
-			{
-				addRoom = YES;
-				break;
-			}
-		}
-		
-		if (addRoom)
+		NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:room forType:VeraDeviceTypeSwitch];
+		if ([devices count])
 		{
 			[rooms addObject:room];
 		}
