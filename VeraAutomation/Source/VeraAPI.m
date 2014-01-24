@@ -78,7 +78,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 		}
 	}];
 	
-	[self checkForOperationCompletion:operation];
+	[self checkForOperationCompletion:operation withTimeout:10];
 }
 
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler
@@ -177,10 +177,15 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 
 - (void) checkForOperationCompletion:(AFHTTPRequestOperation *) operation
 {
+	[self checkForOperationCompletion:operation withTimeout:30];
+}
+
+- (void) checkForOperationCompletion:(AFHTTPRequestOperation *) operation withTimeout:(NSUInteger) timeout
+{
 	// Kill the request after 30 seconds. NSURLConnection's timeout doesn't work how you'd
 	// think it works. The timeout is for data not being received, but isn't a connect timeout.
 	// We really want a connect timeout.
-	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC);
+	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, timeout * NSEC_PER_SEC);
 	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 		if (operation.response == nil)
 		{
@@ -219,7 +224,17 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			{
 				case VeraDeviceTypeSwitch:
 				{
-					if (![device.name isEqualToString:@"Equipment Outlet"] && [device.name rangeOfString:@"Repeater" options:NSCaseInsensitiveSearch].location == NSNotFound && (device.category == 3 || device.category == 2))
+					BOOL addDevice = YES;
+					for (NSString *excludeString in self.deviceNamesToExclude)
+					{
+						if ([device.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
+						{
+							addDevice = NO;
+							break;
+						}
+					}
+					
+					if (addDevice &&  (device.category == 3 || device.category == 2))
 					{
 						[devices addObject:device];
 					}

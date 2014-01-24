@@ -31,6 +31,14 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
 	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 	self.api = [[VeraAPI alloc] init];
+	
+	NSString *pathToExclusionsList = [[NSBundle mainBundle] pathForResource:@"Exclusions" ofType:@"plist"];
+	if ([pathToExclusionsList length])
+	{
+		NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:pathToExclusionsList];
+		NSArray *exclusionsArray = [dict objectForKey:@"Devices To Exclude"];
+		self.api.deviceNamesToExclude = exclusionsArray;
+	}
 
 	self.periodicTimer = [NSTimer scheduledTimerWithTimeInterval:sTimeForCheck target:self selector:@selector(updateUnitInfo) userInfo:nil repeats:YES];
 	[self performSelector:@selector(handleLogin) withObject:nil afterDelay:1.0f];
