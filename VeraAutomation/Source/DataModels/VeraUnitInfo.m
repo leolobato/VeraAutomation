@@ -309,58 +309,6 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
 
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    _state = [aDecoder decodeIntegerForKey:kVeraUnitInfoState];
-    _categories = [aDecoder decodeObjectForKey:kVeraUnitInfoCategories];
-    _scenes = [aDecoder decodeObjectForKey:kVeraUnitInfoScenes];
-    _temperatureUnits = [aDecoder decodeObjectForKey:kVeraUnitInfoTemperature];
-    _irtx = [aDecoder decodeObjectForKey:kVeraUnitInfoIrtx];
-    _devices = [aDecoder decodeObjectForKey:kVeraUnitInfoDevices];
-    _version = [aDecoder decodeObjectForKey:kVeraUnitInfoVersion];
-    _ir = [aDecoder decodeDoubleForKey:kVeraUnitInfoIr];
-    _fwd2 = [aDecoder decodeObjectForKey:kVeraUnitInfoFwd2];
-    _full = [aDecoder decodeBoolForKey:kVeraUnitInfoFull];
-    _serialNumber = [aDecoder decodeObjectForKey:kVeraUnitInfoSerialNumber];
-    _sections = [aDecoder decodeObjectForKey:kVeraUnitInfoSections];
-    _loadtime = [aDecoder decodeIntegerForKey:kVeraUnitInfoLoadtime];
-    _zwaveHeal = [aDecoder decodeDoubleForKey:kVeraUnitInfoZwaveHeal];
-    _fwd1 = [aDecoder decodeObjectForKey:kVeraUnitInfoFwd1];
-    _dataversion = [aDecoder decodeIntegerForKey:kVeraUnitInfoDataversion];
-    _comment = [aDecoder decodeObjectForKey:kVeraUnitInfoComment];
-    _model = [aDecoder decodeObjectForKey:kVeraUnitInfoModel];
-    _rooms = [aDecoder decodeObjectForKey:kVeraUnitInfoRooms];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeInteger:_state forKey:kVeraUnitInfoState];
-    [aCoder encodeObject:_categories forKey:kVeraUnitInfoCategories];
-    [aCoder encodeObject:_scenes forKey:kVeraUnitInfoScenes];
-    [aCoder encodeObject:_temperatureUnits forKey:kVeraUnitInfoTemperature];
-    [aCoder encodeObject:_irtx forKey:kVeraUnitInfoIrtx];
-    [aCoder encodeObject:_devices forKey:kVeraUnitInfoDevices];
-    [aCoder encodeObject:_version forKey:kVeraUnitInfoVersion];
-    [aCoder encodeDouble:_ir forKey:kVeraUnitInfoIr];
-    [aCoder encodeObject:_fwd2 forKey:kVeraUnitInfoFwd2];
-    [aCoder encodeBool:_full forKey:kVeraUnitInfoFull];
-    [aCoder encodeObject:_serialNumber forKey:kVeraUnitInfoSerialNumber];
-    [aCoder encodeObject:_sections forKey:kVeraUnitInfoSections];
-    [aCoder encodeInteger:_loadtime forKey:kVeraUnitInfoLoadtime];
-    [aCoder encodeDouble:_zwaveHeal forKey:kVeraUnitInfoZwaveHeal];
-    [aCoder encodeObject:_fwd1 forKey:kVeraUnitInfoFwd1];
-    [aCoder encodeInteger:_dataversion forKey:kVeraUnitInfoDataversion];
-    [aCoder encodeObject:_comment forKey:kVeraUnitInfoComment];
-    [aCoder encodeObject:_model forKey:kVeraUnitInfoModel];
-    [aCoder encodeObject:_rooms forKey:kVeraUnitInfoRooms];
-}
-
 - (VeraDevice *) deviceWithIdentifier:(NSInteger) deviceIdentifier
 {
 	for (VeraDevice *device in self.devices)

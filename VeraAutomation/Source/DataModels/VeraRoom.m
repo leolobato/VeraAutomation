@@ -56,26 +56,6 @@ NSString *const kVeraRoomSection = @"section";
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
 
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    _name = [aDecoder decodeObjectForKey:kVeraRoomName];
-    _roomIdentifier = [aDecoder decodeIntegerForKey:kVeraRoomId];
-    _section = [aDecoder decodeIntegerForKey:kVeraRoomSection];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeObject:_name forKey:kVeraRoomName];
-    [aCoder encodeInteger:_roomIdentifier forKey:kVeraRoomId];
-    [aCoder encodeInteger:_section forKey:kVeraRoomSection];
-}
-
 - (void) addDevice:(VeraDevice *) device
 {
 	NSMutableArray *devices = [NSMutableArray array];

@@ -9,13 +9,13 @@
 
 
 
-@interface VeraScene : NSObject <NSCoding>
+@interface VeraScene : NSObject
 
-@property (nonatomic, assign) double sceneIdentifier;
-@property (nonatomic, assign) double active;
-@property (nonatomic, assign) double state;
+@property (nonatomic, assign) NSInteger sceneIdentifier;
+@property (nonatomic, assign) BOOL active;
+@property (nonatomic, assign) NSInteger state;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) double room;
+@property (nonatomic, assign) NSInteger room;
 @property (nonatomic, strong) NSString *comment;
 
 + (VeraScene *)modelObjectWithDictionary:(NSDictionary *)dict;

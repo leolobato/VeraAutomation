@@ -9,7 +9,7 @@
 
 
 
-@interface VeraCategories : NSObject <NSCoding>
+@interface VeraCategories : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger categoriesIdentifier;

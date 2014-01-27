@@ -9,7 +9,7 @@
 
 
 
-@interface VeraUnit : NSObject <NSCoding>
+@interface VeraUnit : NSObject
 
 @property (nonatomic, strong) NSString *serialNumber;
 @property (nonatomic, strong) NSString *activeServer;

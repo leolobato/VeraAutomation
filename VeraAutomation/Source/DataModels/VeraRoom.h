@@ -9,7 +9,7 @@
 
 @class VeraDevice;
 
-@interface VeraRoom : NSObject <NSCoding>
+@interface VeraRoom : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger roomIdentifier;

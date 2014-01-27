@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 };
 
 
-@interface VeraDevice : NSObject <NSCoding>
+@interface VeraDevice : NSObject
 
 @property (nonatomic, assign) NSInteger deviceIdentifier;
 @property (nonatomic, assign) NSInteger category;

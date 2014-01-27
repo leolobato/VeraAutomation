@@ -9,7 +9,7 @@
 
 
 
-@interface VeraSections : NSObject <NSCoding>
+@interface VeraSections : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger sectionsIdentifier;

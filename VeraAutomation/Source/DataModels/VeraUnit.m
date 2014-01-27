@@ -137,34 +137,4 @@ NSString *const kUnitName = @"name";
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
 
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    _serialNumber = [aDecoder decodeObjectForKey:kUnitSerialNumber];
-    _activeServer = [aDecoder decodeObjectForKey:kUnitActiveServer];
-    _forwardServers = [aDecoder decodeObjectForKey:kUnitForwardServers];
-    _ipAddress = [aDecoder decodeObjectForKey:kUnitIpAddress];
-    _firmwareVersion = [aDecoder decodeObjectForKey:kUnitFirmwareVersion];
-    _users = [aDecoder decodeObjectForKey:kUnitUsers];
-    _name = [aDecoder decodeObjectForKey:kUnitName];
-    
-	return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeObject:_serialNumber forKey:kUnitSerialNumber];
-    [aCoder encodeObject:_activeServer forKey:kUnitActiveServer];
-    [aCoder encodeObject:_forwardServers forKey:kUnitForwardServers];
-    [aCoder encodeObject:_ipAddress forKey:kUnitIpAddress];
-    [aCoder encodeObject:_firmwareVersion forKey:kUnitFirmwareVersion];
-    [aCoder encodeObject:_users forKey:kUnitUsers];
-    [aCoder encodeObject:_name forKey:kUnitName];
-}
-
-
 @end

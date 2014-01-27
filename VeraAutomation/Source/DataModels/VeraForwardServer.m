@@ -52,24 +52,4 @@ NSString *const kForwardServerHostName = @"hostName";
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
 
-#pragma mark - Helper Method
-
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    _primary = [aDecoder decodeBoolForKey:kForwardServerPrimary];
-    _hostName = [aDecoder decodeObjectForKey:kForwardServerHostName];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeBool:_primary forKey:kForwardServerPrimary];
-    [aCoder encodeObject:_hostName forKey:kForwardServerHostName];
-}
-
-
 @end

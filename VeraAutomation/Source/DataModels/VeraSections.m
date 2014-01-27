@@ -53,23 +53,4 @@ NSString *const kVeraSectionsId = @"id";
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
 
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    _name = [aDecoder decodeObjectForKey:kVeraSectionsName];
-    _sectionsIdentifier = [aDecoder decodeIntegerForKey:kVeraSectionsId];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeObject:_name forKey:kVeraSectionsName];
-    [aCoder encodeInteger:_sectionsIdentifier forKey:kVeraSectionsId];
-}
-
-
 @end

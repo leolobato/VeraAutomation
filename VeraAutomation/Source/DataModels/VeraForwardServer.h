@@ -9,7 +9,7 @@
 
 
 
-@interface VeraForwardServer : NSObject <NSCoding>
+@interface VeraForwardServer : NSObject
 
 @property (nonatomic, assign) BOOL primary;
 @property (nonatomic, strong) NSString *hostName;

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VeraUnitInfo : NSObject <NSCoding>
+@interface VeraUnitInfo : NSObject
 
 @property (nonatomic, assign) NSInteger state;
 @property (nonatomic, strong) NSArray *categories;

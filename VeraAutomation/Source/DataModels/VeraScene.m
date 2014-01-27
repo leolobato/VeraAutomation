@@ -16,12 +16,6 @@ NSString *const kVeraSceneRoom = @"room";
 NSString *const kVeraSceneComment = @"comment";
 
 
-@interface VeraScene ()
-
-- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
-
-@end
-
 @implementation VeraScene
 
 @synthesize sceneIdentifier = _sceneIdentifier;
@@ -44,14 +38,14 @@ NSString *const kVeraSceneComment = @"comment";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.sceneIdentifier = [[self objectOrNilForKey:kVeraSceneId fromDictionary:dict] doubleValue];
-            self.active = [[self objectOrNilForKey:kVeraSceneActive fromDictionary:dict] doubleValue];
-            self.state = [[self objectOrNilForKey:kVeraSceneState fromDictionary:dict] doubleValue];
-            self.name = [self objectOrNilForKey:kVeraSceneName fromDictionary:dict];
-            self.room = [[self objectOrNilForKey:kVeraSceneRoom fromDictionary:dict] doubleValue];
-            self.comment = [self objectOrNilForKey:kVeraSceneComment fromDictionary:dict];
-
+    if(self && [dict isKindOfClass:[NSDictionary class]])
+	{
+		_sceneIdentifier = [dict[kVeraSceneId] integerValue];
+		_active = [dict[kVeraSceneActive] boolValue];
+		_state = [dict[kVeraSceneState] integerValue];
+		_name = dict[kVeraSceneName];
+		_room = [dict[kVeraSceneRoom] integerValue];
+		_comment = dict[kVeraSceneComment];
     }
     
     return self;
@@ -75,40 +69,5 @@ NSString *const kVeraSceneComment = @"comment";
 {
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
-
-#pragma mark - Helper Method
-- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
-{
-    id object = [dict objectForKey:aKey];
-    return [object isEqual:[NSNull null]] ? nil : object;
-}
-
-
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    self.sceneIdentifier = [aDecoder decodeDoubleForKey:kVeraSceneId];
-    self.active = [aDecoder decodeDoubleForKey:kVeraSceneActive];
-    self.state = [aDecoder decodeDoubleForKey:kVeraSceneState];
-    self.name = [aDecoder decodeObjectForKey:kVeraSceneName];
-    self.room = [aDecoder decodeDoubleForKey:kVeraSceneRoom];
-    self.comment = [aDecoder decodeObjectForKey:kVeraSceneComment];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeDouble:_sceneIdentifier forKey:kVeraSceneId];
-    [aCoder encodeDouble:_active forKey:kVeraSceneActive];
-    [aCoder encodeDouble:_state forKey:kVeraSceneState];
-    [aCoder encodeObject:_name forKey:kVeraSceneName];
-    [aCoder encodeDouble:_room forKey:kVeraSceneRoom];
-    [aCoder encodeObject:_comment forKey:kVeraSceneComment];
-}
-
 
 @end
