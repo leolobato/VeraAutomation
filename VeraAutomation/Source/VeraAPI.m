@@ -213,20 +213,6 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	return nil;
 }
 
-- (NSArray *) scenesForRoom:(VeraRoom *) inRoom
-{
-	NSMutableArray *scenes = [NSMutableArray array];
-	for (VeraScene *scene in self.unitInfo.scenes)
-	{
-		if (scene.room == inRoom.roomIdentifier)
-		{
-			[scenes addObject:scene];
-		}
-	}
-	
-	return scenes;
-}
-
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType
 {
 	NSMutableArray *devices = [NSMutableArray array];
@@ -289,6 +275,17 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 				{
 					break;
 				}
+			}
+		}
+	}
+	
+	if (deviceType == VeraDeviceTypeScene)
+	{
+		for (VeraScene *scene in self.unitInfo.scenes)
+		{
+			if (scene.room == inRoom.roomIdentifier && scene.active)
+			{
+				[devices addObject:scene];
 			}
 		}
 	}

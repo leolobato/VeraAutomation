@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Gruby Solutions. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RoomsListBaseViewController.h"
 
-@interface RoomsViewController : UITableViewController
+@interface RoomsViewController : RoomsListBaseViewController
 
 @end

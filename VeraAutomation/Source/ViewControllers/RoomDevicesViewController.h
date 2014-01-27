@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Gruby Solutions. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@class VeraRoom;
-@interface RoomDevicesViewController : UICollectionViewController
-@property (nonatomic, strong) VeraRoom *room;
-- (void) refreshRoom;
+#import "RoomBaseViewController.h"
+@interface RoomDevicesViewController : RoomBaseViewController
 @end

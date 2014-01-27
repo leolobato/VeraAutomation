@@ -44,6 +44,5 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType;
-- (NSArray *) scenesForRoom:(VeraRoom *) inRoom;
 @end
 

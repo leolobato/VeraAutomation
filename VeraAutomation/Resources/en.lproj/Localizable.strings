@@ -12,6 +12,7 @@
 "LOGIN_MESSAGE" = "Please enter your login information to connect to your Vera device.";
 "SWITCHES_TITLE" = "Switches";
 "AUDIO_TITLE" = "Audio";
+"SCENES_TITLE" = "Scenes";
 "COMMAND_SENT_TITLE" = "Command Sent";
 "COMMAND_SENT_MESSAGE_ON_%@" = "%@ has been turned on.";
 "COMMAND_SENT_MESSAGE_OFF_%@" = "%@ has been turned off.";

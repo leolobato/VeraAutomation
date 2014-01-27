@@ -28,6 +28,10 @@
 		D29FE2001853C0B700560018 /* VeraAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1F21853C0B700560018 /* VeraAPI.m */; };
 		D29FE2011853C0B700560018 /* VeraAutomationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1F41853C0B700560018 /* VeraAutomationAppDelegate.m */; };
 		D29FE2051853C0F700560018 /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE2041853C0F700560018 /* DeviceCell.m */; };
+		D2A3BD611896BEA700EAC24F /* ScenesRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */; };
+		D2A3BD641896BF1300EAC24F /* SceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD631896BF1300EAC24F /* SceneViewController.m */; };
+		D2A3BD671896BF9700EAC24F /* RoomsListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD661896BF9700EAC24F /* RoomsListBaseViewController.m */; };
+		D2A3BD6A1896C07A00EAC24F /* RoomBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD691896C07A00EAC24F /* RoomBaseViewController.m */; };
 		D2AC0F5B18517BE800D3AFD4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AC0F5718517BE800D3AFD4 /* Main_iPad.storyboard */; };
 		D2AC0F5C18517BE800D3AFD4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AC0F5918517BE800D3AFD4 /* Main_iPhone.storyboard */; };
 		D2AC0F5F18517BED00D3AFD4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AC0F5D18517BED00D3AFD4 /* InfoPlist.strings */; };
@@ -84,6 +88,14 @@
 		D29FE1F41853C0B700560018 /* VeraAutomationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraAutomationAppDelegate.m; sourceTree = "<group>"; };
 		D29FE2031853C0F700560018 /* DeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceCell.h; sourceTree = "<group>"; };
 		D29FE2041853C0F700560018 /* DeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceCell.m; sourceTree = "<group>"; };
+		D2A3BD5F1896BEA700EAC24F /* ScenesRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenesRoomsViewController.h; sourceTree = "<group>"; };
+		D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenesRoomsViewController.m; sourceTree = "<group>"; };
+		D2A3BD621896BF1300EAC24F /* SceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneViewController.h; sourceTree = "<group>"; };
+		D2A3BD631896BF1300EAC24F /* SceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneViewController.m; sourceTree = "<group>"; };
+		D2A3BD651896BF9700EAC24F /* RoomsListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsListBaseViewController.h; sourceTree = "<group>"; };
+		D2A3BD661896BF9700EAC24F /* RoomsListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsListBaseViewController.m; sourceTree = "<group>"; };
+		D2A3BD681896C07A00EAC24F /* RoomBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomBaseViewController.h; sourceTree = "<group>"; };
+		D2A3BD691896C07A00EAC24F /* RoomBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomBaseViewController.m; sourceTree = "<group>"; };
 		D2AC0F5818517BE800D3AFD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		D2AC0F5A18517BE800D3AFD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		D2AC0F5E18517BED00D3AFD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -280,6 +292,14 @@
 				D2D122691857F70D00A886F9 /* RoomDevicesViewController.m */,
 				D2D1226A1857F70D00A886F9 /* RoomsViewController.h */,
 				D2D1226B1857F70D00A886F9 /* RoomsViewController.m */,
+				D2A3BD5F1896BEA700EAC24F /* ScenesRoomsViewController.h */,
+				D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */,
+				D2A3BD621896BF1300EAC24F /* SceneViewController.h */,
+				D2A3BD631896BF1300EAC24F /* SceneViewController.m */,
+				D2A3BD651896BF9700EAC24F /* RoomsListBaseViewController.h */,
+				D2A3BD661896BF9700EAC24F /* RoomsListBaseViewController.m */,
+				D2A3BD681896C07A00EAC24F /* RoomBaseViewController.h */,
+				D2A3BD691896C07A00EAC24F /* RoomBaseViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -390,14 +410,18 @@
 			files = (
 				D29FE1F61853C0B700560018 /* VeraDevice.m in Sources */,
 				D2D1226E1857F70D00A886F9 /* RoomDevicesViewController.m in Sources */,
+				D2A3BD6A1896C07A00EAC24F /* RoomBaseViewController.m in Sources */,
 				D29FE1F71853C0B700560018 /* VeraForwardServer.m in Sources */,
 				D29FE2051853C0F700560018 /* DeviceCell.m in Sources */,
 				D29FE1F51853C0B700560018 /* VeraCategories.m in Sources */,
 				D29FE1FA1853C0B700560018 /* VeraSections.m in Sources */,
+				D2A3BD611896BEA700EAC24F /* ScenesRoomsViewController.m in Sources */,
 				D29FE1FB1853C0B700560018 /* VeraUnit.m in Sources */,
 				D29FE1FC1853C0B700560018 /* VeraUnitInfo.m in Sources */,
 				D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */,
+				D2A3BD671896BF9700EAC24F /* RoomsListBaseViewController.m in Sources */,
 				D29FE2001853C0B700560018 /* VeraAPI.m in Sources */,
+				D2A3BD641896BF1300EAC24F /* SceneViewController.m in Sources */,
 				D29FE2011853C0B700560018 /* VeraAutomationAppDelegate.m in Sources */,
 				D2D1226D1857F70D00A886F9 /* AudioRoomViewController.m in Sources */,
 				D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */,

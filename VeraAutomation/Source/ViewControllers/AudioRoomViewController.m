@@ -21,21 +21,8 @@
 
 - (void)viewDidLoad
 {
+	self.deviceType = VeraDeviceTypeAudio;
     [super viewDidLoad];
-	[self refreshRoom];
-}
-
-- (void) refreshRoom
-{
-	self.title = self.room.name;
-	self.devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room forType:VeraDeviceTypeAudio];
-	[self.collectionView reloadData];
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-	return [self.devices count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

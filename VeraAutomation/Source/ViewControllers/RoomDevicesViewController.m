@@ -23,44 +23,8 @@ static NSString *kLevelKey = @"Level";
 
 - (void)viewDidLoad
 {
+	self.deviceType = VeraDeviceTypeSwitch;
     [super viewDidLoad];
-	[self refreshRoom];
-}
-
-- (void) refreshRoom
-{
-	self.title = self.room.name;
-	self.devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:self.room forType:VeraDeviceTypeSwitch];
-	DebugLog(@"devices: %@", [self.devices componentsJoinedByString:@"\n"]);
-	[self.collectionView reloadData];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unitInfoChanged:) name:kDeviceUpdatedNotification object:nil];
-}
-
-- (void) unitInfoChanged:(NSNotification *) notification
-{
-	[self.collectionView reloadData];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-	return [self.devices count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
