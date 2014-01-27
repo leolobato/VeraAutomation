@@ -162,6 +162,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	{
 		VeraAutomationAppDelegate __weak *weakSelf = self;
 		[self.api getUnitInformationWithHandler:^(NSError *error, BOOL fullReload) {
+			DebugLogVerbose(@"Unit info: %@", self.api.unitInfo);
 			if (error == nil && fullReload)
 			{
 				[[NSNotificationCenter defaultCenter] postNotificationName:kDeviceInfoNotification object:nil];
@@ -194,6 +195,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 			}
 		}];
 	}
+	
 	//	DebugLog(@"timer");
 }
 

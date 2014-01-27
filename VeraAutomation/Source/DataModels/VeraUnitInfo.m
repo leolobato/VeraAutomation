@@ -7,7 +7,7 @@
 
 #import "VeraUnitInfo.h"
 #import "VeraCategories.h"
-#import "VeraScenes.h"
+#import "VeraScene.h"
 #import "VeraDevice.h"
 #import "VeraSections.h"
 #import "VeraRoom.h"
@@ -96,13 +96,13 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
 			{
 				if ([item isKindOfClass:[NSDictionary class]])
 				{
-					[parsedVeraScenes addObject:[VeraScenes modelObjectWithDictionary:item]];
+					[parsedVeraScenes addObject:[VeraScene modelObjectWithDictionary:item]];
 				}
 			}
 		}
 		else if ([receivedVeraScenes isKindOfClass:[NSDictionary class]])
 		{
-			[parsedVeraScenes addObject:[VeraScenes modelObjectWithDictionary:(NSDictionary *)receivedVeraScenes]];
+			[parsedVeraScenes addObject:[VeraScene modelObjectWithDictionary:(NSDictionary *)receivedVeraScenes]];
 		}
 
 		_scenes = [NSArray arrayWithArray:parsedVeraScenes];
@@ -235,7 +235,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
             [tempArrayForCategories addObject:subArrayObject];
         }
     }
-	mutableDict[@"kVeraUnitInfoCategories"] = [NSArray arrayWithArray:tempArrayForCategories];
+	mutableDict[kVeraUnitInfoCategories] = [NSArray arrayWithArray:tempArrayForCategories];
 	NSMutableArray *tempArrayForScenes = [NSMutableArray array];
     for (NSObject *subArrayObject in self.scenes)
 	{
@@ -250,7 +250,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
             [tempArrayForScenes addObject:subArrayObject];
         }
     }
-	mutableDict[@"kVeraUnitInfoScenes"] = [NSArray arrayWithArray:tempArrayForScenes];
+	mutableDict[kVeraUnitInfoScenes] = [NSArray arrayWithArray:tempArrayForScenes];
 
 	NSMutableArray *tempArrayForDevices = [NSMutableArray array];
     for (NSObject *subArrayObject in self.devices)
@@ -267,7 +267,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
         }
     }
 	
-	mutableDict[@"kVeraUnitInfoDevices"] = [NSArray arrayWithArray:tempArrayForDevices];
+	mutableDict[kVeraUnitInfoDevices] = [NSArray arrayWithArray:tempArrayForDevices];
 
 	NSMutableArray *tempArrayForSections = [NSMutableArray array];
     for (NSObject *subArrayObject in self.sections)
@@ -283,7 +283,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
             [tempArrayForSections addObject:subArrayObject];
         }
     }
-    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSections] forKey:@"kVeraUnitInfoSections"];
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSections] forKey:kVeraUnitInfoSections];
 
 	NSMutableArray *tempArrayForRooms = [NSMutableArray array];
     for (NSObject *subArrayObject in self.rooms)
@@ -299,7 +299,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
             [tempArrayForRooms addObject:subArrayObject];
         }
     }
-    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForRooms] forKey:@"kVeraUnitInfoRooms"];
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForRooms] forKey:kVeraUnitInfoRooms];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }

@@ -250,6 +250,25 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 					}
 					break;
 				}
+					
+				case VeraDeviceTypeThermostat:
+				{
+					if (device.category == 5)
+					{
+						[devices addObject:device];
+					}
+					break;
+				}
+
+				case VeraDeviceTypeLock:
+				{
+					if (device.category == 7)
+					{
+						[devices addObject:device];
+					}
+					
+					break;
+				}
 
 				default:
 				{

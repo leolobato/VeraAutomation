@@ -21,7 +21,7 @@
 		D29FE1F61853C0B700560018 /* VeraDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1DE1853C0B700560018 /* VeraDevice.m */; };
 		D29FE1F71853C0B700560018 /* VeraForwardServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E01853C0B700560018 /* VeraForwardServer.m */; };
 		D29FE1F81853C0B700560018 /* VeraRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E21853C0B700560018 /* VeraRoom.m */; };
-		D29FE1F91853C0B700560018 /* VeraScenes.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E41853C0B700560018 /* VeraScenes.m */; };
+		D29FE1F91853C0B700560018 /* VeraScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E41853C0B700560018 /* VeraScene.m */; };
 		D29FE1FA1853C0B700560018 /* VeraSections.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E61853C0B700560018 /* VeraSections.m */; };
 		D29FE1FB1853C0B700560018 /* VeraUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E81853C0B700560018 /* VeraUnit.m */; };
 		D29FE1FC1853C0B700560018 /* VeraUnitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1EA1853C0B700560018 /* VeraUnitInfo.m */; };
@@ -70,8 +70,8 @@
 		D29FE1E01853C0B700560018 /* VeraForwardServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraForwardServer.m; sourceTree = "<group>"; };
 		D29FE1E11853C0B700560018 /* VeraRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraRoom.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D29FE1E21853C0B700560018 /* VeraRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraRoom.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D29FE1E31853C0B700560018 /* VeraScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraScenes.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D29FE1E41853C0B700560018 /* VeraScenes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraScenes.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D29FE1E31853C0B700560018 /* VeraScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraScene.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1E41853C0B700560018 /* VeraScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraScene.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D29FE1E51853C0B700560018 /* VeraSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraSections.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D29FE1E61853C0B700560018 /* VeraSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraSections.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D29FE1E71853C0B700560018 /* VeraUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraUnit.h; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 				D29FE1E01853C0B700560018 /* VeraForwardServer.m */,
 				D29FE1E11853C0B700560018 /* VeraRoom.h */,
 				D29FE1E21853C0B700560018 /* VeraRoom.m */,
-				D29FE1E31853C0B700560018 /* VeraScenes.h */,
-				D29FE1E41853C0B700560018 /* VeraScenes.m */,
+				D29FE1E31853C0B700560018 /* VeraScene.h */,
+				D29FE1E41853C0B700560018 /* VeraScene.m */,
 				D29FE1E51853C0B700560018 /* VeraSections.h */,
 				D29FE1E61853C0B700560018 /* VeraSections.m */,
 				D29FE1E71853C0B700560018 /* VeraUnit.h */,
@@ -402,7 +402,7 @@
 				D2D1226D1857F70D00A886F9 /* AudioRoomViewController.m in Sources */,
 				D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */,
 				D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */,
-				D29FE1F91853C0B700560018 /* VeraScenes.m in Sources */,
+				D29FE1F91853C0B700560018 /* VeraScene.m in Sources */,
 				D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */,
 				D2D1226C1857F70D00A886F9 /* AudioRoomsViewController.m in Sources */,
 				D28C1FBC185174600069B8B9 /* main.m in Sources */,
