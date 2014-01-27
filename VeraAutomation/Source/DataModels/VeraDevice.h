@@ -2,7 +2,7 @@
 //  VeraDevices.h
 //
 //  Created by Scott Gruby on 12/7/13
-//  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013 Gruby Solutions. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -10,7 +10,9 @@
 typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
     VeraDeviceTypeUnknown			= -1,
 	VeraDeviceTypeSwitch			= 0,
-	VeraDeviceTypeAudio				= 1
+	VeraDeviceTypeAudio				= 1,
+	VeraDeviceTypeThermostat		= 2,
+	VeraDeviceTypeLock				= 3
 };
 
 

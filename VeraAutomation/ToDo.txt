@@ -1,0 +1,5 @@
+ToDo
+----------
+Remember last used sta server
+Remember last used forwarding server
+Add in temperature stuff

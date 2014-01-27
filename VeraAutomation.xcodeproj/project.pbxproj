@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		363A6CBEC52E42188D533D6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C222DC40E4365938179AE /* libPods.a */; };
 		D20E2376189223F20093BD42 /* Exclusions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20E2375189223F20093BD42 /* Exclusions.plist */; };
+		D20E237818922B5B0093BD42 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D20E237718922B5B0093BD42 /* ToDo.txt */; };
 		D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24541731857F87500FE9C1A /* ActionSheetDelegate.m */; };
 		D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D245417B1857F87900FE9C1A /* AlertViewDelegate.m */; };
 		D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D268281D1854322C0056620D /* AudioDeviceCell.m */; };
@@ -43,6 +44,7 @@
 		725C222DC40E4365938179AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		908E49C16F894407BB3D8A1C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D20E2375189223F20093BD42 /* Exclusions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exclusions.plist; sourceTree = "<group>"; };
+		D20E237718922B5B0093BD42 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		D24541721857F87500FE9C1A /* ActionSheetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDelegate.h; sourceTree = "<group>"; };
 		D24541731857F87500FE9C1A /* ActionSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDelegate.m; sourceTree = "<group>"; };
 		D245417A1857F87900FE9C1A /* AlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewDelegate.h; sourceTree = "<group>"; };
@@ -60,22 +62,22 @@
 		D28C1FDC185174600069B8B9 /* VeraAutomationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VeraAutomationTests-Info.plist"; sourceTree = "<group>"; };
 		D28C1FDE185174600069B8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D28C1FE0185174600069B8B9 /* VeraAutomationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VeraAutomationTests.m; sourceTree = "<group>"; };
-		D29FE1DB1853C0B700560018 /* VeraCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraCategories.h; sourceTree = "<group>"; };
-		D29FE1DC1853C0B700560018 /* VeraCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraCategories.m; sourceTree = "<group>"; };
-		D29FE1DD1853C0B700560018 /* VeraDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraDevice.h; sourceTree = "<group>"; };
-		D29FE1DE1853C0B700560018 /* VeraDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraDevice.m; sourceTree = "<group>"; };
-		D29FE1DF1853C0B700560018 /* VeraForwardServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraForwardServer.h; sourceTree = "<group>"; };
+		D29FE1DB1853C0B700560018 /* VeraCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraCategories.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1DC1853C0B700560018 /* VeraCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraCategories.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D29FE1DD1853C0B700560018 /* VeraDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraDevice.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1DE1853C0B700560018 /* VeraDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraDevice.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D29FE1DF1853C0B700560018 /* VeraForwardServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraForwardServer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D29FE1E01853C0B700560018 /* VeraForwardServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraForwardServer.m; sourceTree = "<group>"; };
-		D29FE1E11853C0B700560018 /* VeraRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraRoom.h; sourceTree = "<group>"; };
-		D29FE1E21853C0B700560018 /* VeraRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraRoom.m; sourceTree = "<group>"; };
-		D29FE1E31853C0B700560018 /* VeraScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraScenes.h; sourceTree = "<group>"; };
-		D29FE1E41853C0B700560018 /* VeraScenes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraScenes.m; sourceTree = "<group>"; };
-		D29FE1E51853C0B700560018 /* VeraSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraSections.h; sourceTree = "<group>"; };
-		D29FE1E61853C0B700560018 /* VeraSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraSections.m; sourceTree = "<group>"; };
+		D29FE1E11853C0B700560018 /* VeraRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraRoom.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1E21853C0B700560018 /* VeraRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraRoom.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D29FE1E31853C0B700560018 /* VeraScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraScenes.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1E41853C0B700560018 /* VeraScenes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraScenes.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D29FE1E51853C0B700560018 /* VeraSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraSections.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1E61853C0B700560018 /* VeraSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraSections.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D29FE1E71853C0B700560018 /* VeraUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraUnit.h; sourceTree = "<group>"; };
 		D29FE1E81853C0B700560018 /* VeraUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraUnit.m; sourceTree = "<group>"; };
-		D29FE1E91853C0B700560018 /* VeraUnitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraUnitInfo.h; sourceTree = "<group>"; };
-		D29FE1EA1853C0B700560018 /* VeraUnitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraUnitInfo.m; sourceTree = "<group>"; };
+		D29FE1E91853C0B700560018 /* VeraUnitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraUnitInfo.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D29FE1EA1853C0B700560018 /* VeraUnitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraUnitInfo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D29FE1F11853C0B700560018 /* VeraAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraAPI.h; sourceTree = "<group>"; };
 		D29FE1F21853C0B700560018 /* VeraAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraAPI.m; sourceTree = "<group>"; };
 		D29FE1F31853C0B700560018 /* VeraAutomationAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraAutomationAppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				D29FE1D91853C0B700560018 /* Source */,
 				D265E2C818517BA900999E55 /* Resources */,
 				D28C1FB6185174600069B8B9 /* Supporting Files */,
+				D20E237718922B5B0093BD42 /* ToDo.txt */,
 			);
 			path = VeraAutomation;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20E237818922B5B0093BD42 /* ToDo.txt in Resources */,
 				D2AC0F6418517C0300D3AFD4 /* Localizable.strings in Resources */,
 				D2AC0F5C18517BE800D3AFD4 /* Main_iPhone.storyboard in Resources */,
 				D2AC0F6118517BF300D3AFD4 /* Images.xcassets in Resources */,

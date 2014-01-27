@@ -2,7 +2,7 @@
 //  VeraRooms.h
 //
 //  Created by Scott Gruby on 12/7/13
-//  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013 Gruby Solutions. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
