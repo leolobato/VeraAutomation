@@ -13,6 +13,7 @@
 #import "VeraUnitInfo.h"
 #import "VeraRoom.h"
 #import "VeraDevice.h"
+#import "VeraScene.h"
 
 NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 
@@ -210,6 +211,20 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	}
 	
 	return nil;
+}
+
+- (NSArray *) scenesForRoom:(VeraRoom *) inRoom
+{
+	NSMutableArray *scenes = [NSMutableArray array];
+	for (VeraScene *scene in self.unitInfo.scenes)
+	{
+		if (scene.room == inRoom.roomIdentifier)
+		{
+			[scenes addObject:scene];
+		}
+	}
+	
+	return scenes;
 }
 
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType
