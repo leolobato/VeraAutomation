@@ -210,6 +210,16 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}];
 }
 
+- (void) runSecene:(VeraScene *) scene
+{
+	VeraAutomationAppDelegate __weak *weakSelf = self;
+	[self.api runScene:scene withHandler:^(NSError *error) {
+		weakSelf.lastUnitCheck = nil;
+		[weakSelf updateUnitInfo];
+	}];
+}
+
+
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device
 {
 	VeraAutomationAppDelegate __weak *weakSelf = self;

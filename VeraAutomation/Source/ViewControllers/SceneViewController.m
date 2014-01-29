@@ -35,4 +35,25 @@
 	return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	// Toggle the device
+	VeraScene *scene = nil;
+	if (indexPath.row < [self.devices count])
+	{
+		scene = self.devices[indexPath.row];
+	}
+	
+	if (scene)
+	{
+		[[VeraAutomationAppDelegate appDelegate] runSecene:scene];
+		
+		NSString *subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_RUN_SCENE_MESSAGE_%@", nil), scene.name];
+
+		[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+													subtitle:subtitleString
+														type:TSMessageNotificationTypeSuccess];
+	}
+}
+
 @end

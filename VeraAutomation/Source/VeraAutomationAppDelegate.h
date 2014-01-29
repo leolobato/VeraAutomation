@@ -11,6 +11,7 @@
 #import "VeraAPI.h"
 
 @class VeraDevice;
+@class VeraScene;
 
 @interface VeraAutomationAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
@@ -21,6 +22,7 @@
 // All of the API calls are run through the app delegate so that the timer for updating
 // the information can be reset and a new call can be made to get current status
 - (void) toggleDevice:(VeraDevice *) device;
+- (void) runSecene:(VeraScene *) scene;
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device;
 - (void) setAudioDeviceVolume:(BOOL) up device:(VeraDevice *) device;
 - (void) setAudioDeviceInput:(NSInteger) input device:(VeraDevice *) device;

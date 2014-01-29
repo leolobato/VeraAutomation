@@ -13,6 +13,7 @@
 @class VeraUnit;
 @class VeraUnitInfo;
 @class VeraRoom;
+@class VeraScene;
 
 extern NSString *kVeraAPIErrorDomain;
 
@@ -36,6 +37,7 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler;
 - (VeraRoom *) roomWithIdentifier:(NSUInteger) identifier;
 - (void) toggleDevice:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
+- (void) runScene:(VeraScene *) scene withHandler:(void (^)(NSError *error)) handler;
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level withHandler:(void (^)(NSError *error)) handler;
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;
 - (void) setAllAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler;

@@ -331,6 +331,44 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 
 }
 
+- (void) runScene:(VeraScene *) scene withHandler:(void (^)(NSError *error)) handler
+{
+	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
+	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+	
+	//VeraAPI __weak *weakSelf = self;
+	NSString *requestString = nil;
+	if ([self.unit.ipAddress length])
+	{
+		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&serviceId=urn:micasaverde-com:serviceId:HomeAutomationGateway1&action=RunScene&SceneNum=%lu", self.unit.ipAddress, (unsigned long) scene.sceneIdentifier];
+	}
+	else
+	{
+		VeraForwardServer *server = [self.unit.forwardServers firstObject];
+		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&serviceId=urn:micasaverde-com:serviceId:HomeAutomationGateway1&action=RunScene&SceneNum=%lu", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) scene.sceneIdentifier];
+		
+	}
+	
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		DebugLog(@"responseObject: %@", responseObject);
+		if (handler)
+		{
+			handler(nil);
+		}
+		
+		//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		DebugLog(@"failure: %@", error);
+		if (handler)
+		{
+			handler(nil);
+		}
+	}];
+	
+	[self checkForOperationCompletion:operation];
+}
+
+
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
 {
 	// http://10.0.1.101:3480/data_request?id=lu_action&DeviceNum=116&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=0

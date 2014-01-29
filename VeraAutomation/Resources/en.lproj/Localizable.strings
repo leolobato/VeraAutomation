@@ -22,4 +22,5 @@
 "COMMAND_SENT_INPUT_1_%@" = "%@ has been set to server 1";
 "COMMAND_SENT_INPUT_2_%@" = "%@ has been set to server 2";
 "COMMAND_SENT_INPUT_3_%@" = "%@ has been set to server 3";
+"COMMAND_RUN_SCENE_MESSAGE_%@" = "Running %@.";
 
