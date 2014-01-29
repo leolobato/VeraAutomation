@@ -8,6 +8,7 @@
 
 #import "SceneViewController.h"
 #import "VeraScene.h"
+#import "SceneCell.h"
 
 @interface SceneViewController ()
 @property (nonatomic, strong) NSArray *devices;
@@ -22,17 +23,15 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"SceneCell" forIndexPath:indexPath];
+	SceneCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"SceneCell" forIndexPath:indexPath];
 	VeraScene *scene = nil;
 	if (indexPath.row < [self.devices count])
 	{
 		scene = self.devices[indexPath.row];
 	}
 	
-	
-//	cell.device = device;
-//	cell.delegate = self;
-//	[cell setupCell];
+	cell.scene = scene;
+	[cell setupCell];
 	return cell;
 }
 

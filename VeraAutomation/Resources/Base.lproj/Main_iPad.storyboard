@@ -433,29 +433,46 @@
             </objects>
             <point key="canvasLocation" x="886" y="2088"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Scene View Controller-->
         <scene sceneID="ZZw-oT-nsx">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="ESx-ot-Wrk" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="ESx-ot-Wrk" customClass="SceneViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="eOt-ZI-alJ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="daU-b9-c3j">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="0.0" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SceneCell" id="Qoy-5P-bpT">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SceneCell" id="Qoy-5P-bpT" customClass="SceneCell">
+                                <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="cYx-7A-yIL">
+                                            <rect key="frame" x="0.0" y="20" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="cYx-7A-yIL" firstAttribute="leading" secondItem="Qoy-5P-bpT" secondAttribute="leading" id="YPf-Ub-bxp"/>
+                                    <constraint firstAttribute="trailing" secondItem="cYx-7A-yIL" secondAttribute="trailing" id="d4f-EO-dyB"/>
+                                    <constraint firstItem="cYx-7A-yIL" firstAttribute="top" secondItem="Qoy-5P-bpT" secondAttribute="top" constant="20" id="xRe-Rb-rFY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="titleLabel" destination="cYx-7A-yIL" id="ERW-aB-rvB"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -463,10 +480,11 @@
                             <outlet property="delegate" destination="ESx-ot-Wrk" id="tMs-MJ-mO5"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="sR8-NJ-zvj"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUJ-jv-Hpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="3277"/>
+            <point key="canvasLocation" x="2063" y="3277"/>
         </scene>
         <!--Split View Controller - Scenes-->
         <scene sceneID="bg9-g4-cfx">
@@ -476,7 +494,7 @@
                     <toolbarItems/>
                     <connections>
                         <segue destination="mNq-Cd-h9A" kind="relationship" relationship="masterViewController" id="di4-g2-Ihb"/>
-                        <segue destination="ESx-ot-Wrk" kind="relationship" relationship="detailViewController" id="VAr-2p-NMn"/>
+                        <segue destination="um8-1K-jsX" kind="relationship" relationship="detailViewController" id="VAr-2p-NMn"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsG-Wf-XVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -518,6 +536,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjS-qf-uLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2605" y="274"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jbd-d3-S1i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="um8-1K-jsX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DUB-FT-Qrg">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ESx-ot-Wrk" kind="relationship" relationship="rootViewController" id="RJe-mG-KpD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soR-H5-Brl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="3277"/>
         </scene>
     </scenes>
     <resources>

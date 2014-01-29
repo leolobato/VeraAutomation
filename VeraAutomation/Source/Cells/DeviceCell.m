@@ -8,6 +8,7 @@
 
 #import "DeviceCell.h"
 #import "VeraDevice.h"
+#import "VeraAutomationUtilities.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface DeviceCell ()
@@ -22,6 +23,7 @@
 
 - (void)prepareForReuse
 {
+	[super prepareForReuse];
 	self.device = nil;
 	self.levelSlider.hidden = NO;
 	self.deviceNameLabel.text = nil;
@@ -31,6 +33,7 @@
 - (void) setupCell
 {
 	self.layer.cornerRadius = 5.0f;
+
 	self.deviceNameLabel.text = self.device.name;
 	self.statusLabel.text = [NSString stringWithFormat:@"Status: %ld", (long)self.device.status];
 	

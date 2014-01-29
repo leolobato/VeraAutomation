@@ -47,6 +47,8 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[DDLog addLogger:[DDASLLogger sharedInstance] withLogLevel:LOG_LEVEL_VERBOSE];
 	[DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:LOG_LEVEL_VERBOSE];
 #endif
+	
+	[[UIButton appearanceWhenContainedIn:[UICollectionView class], nil] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
 	return YES;
 }

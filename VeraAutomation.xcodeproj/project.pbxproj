@@ -13,6 +13,9 @@
 		D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24541731857F87500FE9C1A /* ActionSheetDelegate.m */; };
 		D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D245417B1857F87900FE9C1A /* AlertViewDelegate.m */; };
 		D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D268281D1854322C0056620D /* AudioDeviceCell.m */; };
+		D27311391898AE36003570B9 /* SceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D27311381898AE36003570B9 /* SceneCell.m */; };
+		D273113C1898B2A0003570B9 /* VeraAutomationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D273113B1898B2A0003570B9 /* VeraAutomationUtilities.m */; };
+		D273113F1898B4D3003570B9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D273113E1898B4D3003570B9 /* BaseCell.m */; };
 		D28C1FB0185174600069B8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28C1FAF185174600069B8B9 /* Foundation.framework */; };
 		D28C1FB2185174600069B8B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28C1FB1185174600069B8B9 /* CoreGraphics.framework */; };
 		D28C1FB4185174600069B8B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28C1FB3185174600069B8B9 /* UIKit.framework */; };
@@ -55,6 +58,12 @@
 		D245417B1857F87900FE9C1A /* AlertViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewDelegate.m; sourceTree = "<group>"; };
 		D268281C1854322C0056620D /* AudioDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDeviceCell.h; sourceTree = "<group>"; };
 		D268281D1854322C0056620D /* AudioDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDeviceCell.m; sourceTree = "<group>"; };
+		D27311371898AE36003570B9 /* SceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneCell.h; sourceTree = "<group>"; };
+		D27311381898AE36003570B9 /* SceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneCell.m; sourceTree = "<group>"; };
+		D273113A1898B2A0003570B9 /* VeraAutomationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeraAutomationUtilities.h; sourceTree = "<group>"; };
+		D273113B1898B2A0003570B9 /* VeraAutomationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraAutomationUtilities.m; sourceTree = "<group>"; };
+		D273113D1898B4D3003570B9 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
+		D273113E1898B4D3003570B9 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		D28C1FAC185174600069B8B9 /* VeraAutomation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeraAutomation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28C1FAF185174600069B8B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D28C1FB1185174600069B8B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -243,6 +252,8 @@
 				D29FE1F21853C0B700560018 /* VeraAPI.m */,
 				D29FE1F31853C0B700560018 /* VeraAutomationAppDelegate.h */,
 				D29FE1F41853C0B700560018 /* VeraAutomationAppDelegate.m */,
+				D273113A1898B2A0003570B9 /* VeraAutomationUtilities.h */,
+				D273113B1898B2A0003570B9 /* VeraAutomationUtilities.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -277,6 +288,10 @@
 				D29FE2041853C0F700560018 /* DeviceCell.m */,
 				D268281C1854322C0056620D /* AudioDeviceCell.h */,
 				D268281D1854322C0056620D /* AudioDeviceCell.m */,
+				D27311371898AE36003570B9 /* SceneCell.h */,
+				D27311381898AE36003570B9 /* SceneCell.m */,
+				D273113D1898B4D3003570B9 /* BaseCell.h */,
+				D273113E1898B4D3003570B9 /* BaseCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -413,6 +428,7 @@
 				D2A3BD6A1896C07A00EAC24F /* RoomBaseViewController.m in Sources */,
 				D29FE1F71853C0B700560018 /* VeraForwardServer.m in Sources */,
 				D29FE2051853C0F700560018 /* DeviceCell.m in Sources */,
+				D273113F1898B4D3003570B9 /* BaseCell.m in Sources */,
 				D29FE1F51853C0B700560018 /* VeraCategories.m in Sources */,
 				D29FE1FA1853C0B700560018 /* VeraSections.m in Sources */,
 				D2A3BD611896BEA700EAC24F /* ScenesRoomsViewController.m in Sources */,
@@ -427,7 +443,9 @@
 				D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */,
 				D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */,
 				D29FE1F91853C0B700560018 /* VeraScene.m in Sources */,
+				D27311391898AE36003570B9 /* SceneCell.m in Sources */,
 				D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */,
+				D273113C1898B2A0003570B9 /* VeraAutomationUtilities.m in Sources */,
 				D2D1226C1857F70D00A886F9 /* AudioRoomsViewController.m in Sources */,
 				D28C1FBC185174600069B8B9 /* main.m in Sources */,
 				D29FE1F81853C0B700560018 /* VeraRoom.m in Sources */,

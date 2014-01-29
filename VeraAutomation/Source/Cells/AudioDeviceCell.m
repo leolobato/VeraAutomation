@@ -8,6 +8,7 @@
 
 #import "AudioDeviceCell.h"
 #import "VeraDevice.h"
+#import "VeraAutomationUtilities.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface AudioDeviceCell ()
@@ -23,6 +24,7 @@
 @implementation AudioDeviceCell
 - (void)prepareForReuse
 {
+	[super prepareForReuse];
 	self.device = nil;
 	[self setupCell];
 }

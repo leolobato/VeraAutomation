@@ -246,7 +246,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.79280830827590987" green="1" blue="0.94629115076295622" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OaU-jR-kGS" firstAttribute="centerX" secondItem="17h-aQ-cc6" secondAttribute="centerX" constant="-0.5" id="03R-5J-05b"/>
                                     <constraint firstItem="JmH-3y-j3p" firstAttribute="top" secondItem="mFM-QW-g3h" secondAttribute="bottom" constant="14" id="4GJ-L9-aww"/>
@@ -347,20 +347,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cfa-fC-ngT">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SceneCell" id="tLe-aP-0jm">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SceneCell" id="tLe-aP-0jm" customClass="SceneCell">
+                                <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="vzA-s0-5ne">
+                                            <rect key="frame" x="0.0" y="64" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vzA-s0-5ne" secondAttribute="trailing" id="8dz-XB-IHo"/>
+                                    <constraint firstItem="vzA-s0-5ne" firstAttribute="leading" secondItem="tLe-aP-0jm" secondAttribute="leading" id="AMZ-gs-4gP"/>
+                                    <constraint firstAttribute="centerY" secondItem="vzA-s0-5ne" secondAttribute="centerY" constant="0.5" id="eGn-tr-bgu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="titleLabel" destination="vzA-s0-5ne" id="0Tk-qq-mG7"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

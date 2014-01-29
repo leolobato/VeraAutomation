@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Gruby Solutions. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseCell.h"
 
 @protocol AudioDeviceCellProtocol <NSObject>
 - (void) deviceButtonTapped:(NSInteger) tag forDevice:(VeraDevice *) device;
 @end
 
 @class VeraDevice;
-@interface AudioDeviceCell : UICollectionViewCell
+@interface AudioDeviceCell : BaseCell
 @property (nonatomic, strong) VeraDevice *device;
 @property (nonatomic, weak) id<AudioDeviceCellProtocol> delegate;
 - (void) setupCell;
