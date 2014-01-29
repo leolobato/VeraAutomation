@@ -296,25 +296,6 @@
             </objects>
             <point key="canvasLocation" x="3579" y="274"/>
         </scene>
-        <!--View Controller - Climate-->
-        <scene sceneID="m4M-km-rJa">
-            <objects>
-                <viewController id="f7j-8f-ihN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ut8-eD-UAp"/>
-                        <viewControllerLayoutGuide type="bottom" id="pWr-13-vz6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bpT-gg-SFU">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Climate" image="climate" id="FIM-tH-tp0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qPH-jB-Hhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1703" y="2086"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="23o-VT-YIO">
             <objects>
@@ -328,7 +309,6 @@
                     <connections>
                         <segue destination="7v1-bL-J2l" kind="relationship" relationship="viewControllers" id="4gt-Ra-1ZY"/>
                         <segue destination="qL6-5t-Wrc" kind="relationship" relationship="viewControllers" id="Z8L-a3-Zfv"/>
-                        <segue destination="f7j-8f-ihN" kind="relationship" relationship="viewControllers" id="PHx-PH-YJU"/>
                         <segue destination="TZn-vY-rlB" kind="relationship" relationship="viewControllers" id="m8g-CE-n8y"/>
                     </connections>
                 </tabBarController>
@@ -557,7 +537,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
         <image name="scene" width="29" height="29"/>

@@ -144,7 +144,10 @@
 		
 		RoomBaseViewController *vc = segue.destinationViewController;
 		vc.room = room;
-		
+		if (self.tableView.indexPathForSelectedRow)
+		{
+			[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+		}
 	}
 }
 

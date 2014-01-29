@@ -216,69 +216,6 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType
 {
 	NSMutableArray *devices = [NSMutableArray array];
-	for (VeraDevice *device in self.unitInfo.devices)
-	{
-		if (device.room == inRoom.roomIdentifier)
-		{
-			// Check the device type before adding it
-			switch (deviceType)
-			{
-				case VeraDeviceTypeSwitch:
-				{
-					BOOL addDevice = YES;
-					for (NSString *excludeString in self.deviceNamesToExclude)
-					{
-						if ([device.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
-						{
-							addDevice = NO;
-							break;
-						}
-					}
-					
-					if (addDevice &&  (device.category == 3 || device.category == 2))
-					{
-						[devices addObject:device];
-					}
-
-					break;
-				}
-
-				case VeraDeviceTypeAudio:
-				{
-					if (device.name && [device.name rangeOfString:@"Audio" options:NSCaseInsensitiveSearch].location != NSNotFound)
-					{
-						[devices addObject:device];
-					}
-					break;
-				}
-					
-				case VeraDeviceTypeThermostat:
-				{
-					if (device.category == 5)
-					{
-						[devices addObject:device];
-					}
-					break;
-				}
-
-				case VeraDeviceTypeLock:
-				{
-					if (device.category == 7)
-					{
-						[devices addObject:device];
-					}
-					
-					break;
-				}
-
-				default:
-				{
-					break;
-				}
-			}
-		}
-	}
-	
 	if (deviceType == VeraDeviceTypeScene)
 	{
 		for (VeraScene *scene in self.unitInfo.scenes)
@@ -301,6 +238,79 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 				}
 			}
 		}
+		
+		[devices sortUsingComparator:^NSComparisonResult(VeraScene *scene1, VeraScene *scene2) {
+			return [scene1.name caseInsensitiveCompare:scene2.name];
+		}];
+	}
+	else
+	{
+		for (VeraDevice *device in self.unitInfo.devices)
+		{
+			if (device.room == inRoom.roomIdentifier)
+			{
+				// Check the device type before adding it
+				switch (deviceType)
+				{
+					case VeraDeviceTypeSwitch:
+					{
+						BOOL addDevice = YES;
+						for (NSString *excludeString in self.deviceNamesToExclude)
+						{
+							if ([device.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
+							{
+								addDevice = NO;
+								break;
+							}
+						}
+						
+						if (addDevice &&  (device.category == 3 || device.category == 2))
+						{
+							[devices addObject:device];
+						}
+						
+						break;
+					}
+						
+					case VeraDeviceTypeAudio:
+					{
+						if (device.name && [device.name rangeOfString:@"Audio" options:NSCaseInsensitiveSearch].location != NSNotFound)
+						{
+							[devices addObject:device];
+						}
+						break;
+					}
+						
+					case VeraDeviceTypeThermostat:
+					{
+						if (device.category == 5)
+						{
+							[devices addObject:device];
+						}
+						break;
+					}
+						
+					case VeraDeviceTypeLock:
+					{
+						if (device.category == 7)
+						{
+							[devices addObject:device];
+						}
+						
+						break;
+					}
+						
+					default:
+					{
+						break;
+					}
+				}
+			}
+		}
+
+		[devices sortUsingComparator:^NSComparisonResult(VeraDevice *device1, VeraDevice *device2) {
+			return [device1.name caseInsensitiveCompare:device2.name];
+		}];
 	}
 	
 	return devices;
