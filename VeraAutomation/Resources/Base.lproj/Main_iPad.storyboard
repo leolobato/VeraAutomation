@@ -490,7 +490,7 @@
         <scene sceneID="bg9-g4-cfx">
             <objects>
                 <splitViewController id="TZn-vY-rlB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scenes" id="vlD-YY-N25"/>
+                    <tabBarItem key="tabBarItem" title="Scenes" image="scene" id="vlD-YY-N25"/>
                     <toolbarItems/>
                     <connections>
                         <segue destination="mNq-Cd-h9A" kind="relationship" relationship="masterViewController" id="di4-g2-Ihb"/>
@@ -560,6 +560,7 @@
         <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
+        <image name="scene" width="29" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

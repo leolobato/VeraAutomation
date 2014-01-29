@@ -1,9 +1,9 @@
 VeraAutomation
 ==========
 
-This is a basic iOS app for controlling a Vera automation system. It was designed around my personal VeraLite setup and not all parts will work for everyone. The Audio control part only works with a custom Vera plugin that I wrote to talk to my Russound audio units over TCP/IP. I have also added code to ignore certain devices that I don't want shown; this is particular to my setup and likely shouldn't be left in if used anywhere else.
+This is a basic iOS app for controlling a Vera automation system. It was designed around my personal VeraLite setup and not all parts will work for everyone. The Audio control part only works with a custom Vera plugin that I wrote to talk to my Russound audio units over TCP/IP. I have also added code to ignore certain devices that I don't want shown; modify Exclusions.plist for the devices you want to ignore. The code does a substring match to items in the list.
 
-This is a work in progress. The iPhone part is nearing completion; the iPad part hasn't been started.
+This is a work in progress. The app works on the iPhone and iPad. I use the app everyday and it works pretty well in my setup.
 
 Setup
 ==========
@@ -34,6 +34,8 @@ Radio icon by Camilo Villegas and is in the public domain.
 
 Leaf icon by Arthy.P and is in the public domain.
 
+Cinema icon by Saman Bemel-Benrud and is in the public domain.
+
 Source Code
 -
 [ActionSheetDelegate](https://github.com/woolsweater/ActionSheetDelegate) by [Joshua Caswell](woolsweatersoft@gmail.com) and is in the public domain.
@@ -50,7 +52,6 @@ Source Code
 
 ToDo
 ==============
-* Work on iPad version
 * Fix issues where login prompt comes up on failed connection
 * Add in climate control
 
@@ -58,7 +59,7 @@ License
 ==========
 The source code or any portion of it may be used in any application used for non-commercial purposes without payment. However, you must attribute the work to me with something like:
 
-Portions &copy;2013 Scott Gruby. All rights reserved.
+Portions &copy;2013-2014 Scott Gruby. All rights reserved.
 	
 You must make it clear in your documentation that you are responsible for any application you develop.
 

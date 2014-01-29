@@ -454,7 +454,7 @@
         <scene sceneID="TRI-sj-aBt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wob-N5-DDg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scenes" id="0vM-wz-PfL"/>
+                    <tabBarItem key="tabBarItem" title="Scenes" image="scene" id="0vM-wz-PfL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5gS-0J-fac">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -474,6 +474,7 @@
         <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
+        <image name="scene" width="29" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
