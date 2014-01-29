@@ -283,9 +283,22 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	{
 		for (VeraScene *scene in self.unitInfo.scenes)
 		{
-			if (scene.room == inRoom.roomIdentifier && scene.active)
+			if (scene.room == inRoom.roomIdentifier)
 			{
-				[devices addObject:scene];
+				BOOL addScene = YES;
+				for (NSString *excludeString in self.sceneNamesToExclude)
+				{
+					if ([scene.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
+					{
+						addScene = NO;
+						break;
+					}
+				}
+				
+				if (addScene)
+				{
+					[devices addObject:scene];
+				}
 			}
 		}
 	}

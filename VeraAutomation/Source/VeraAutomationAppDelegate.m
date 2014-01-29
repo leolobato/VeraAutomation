@@ -36,8 +36,8 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	if ([pathToExclusionsList length])
 	{
 		NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:pathToExclusionsList];
-		NSArray *exclusionsArray = [dict objectForKey:@"Devices To Exclude"];
-		self.api.deviceNamesToExclude = exclusionsArray;
+		self.api.deviceNamesToExclude = dict[@"Devices To Exclude"];
+		self.api.sceneNamesToExclude = dict[@"Scenes To Exclude"];
 	}
 
 	self.periodicTimer = [NSTimer scheduledTimerWithTimeInterval:sTimeForCheck target:self selector:@selector(updateUnitInfo) userInfo:nil repeats:YES];

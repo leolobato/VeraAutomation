@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Scenes To Exclude</key>
+	<array>
+		<string>Turn off equipment</string>
+		<string>Turn on equipment</string>
+		<string>Bedside Light</string>
+	</array>
 	<key>Devices To Exclude</key>
 	<array>
 		<string>Equipment Outlet</string>
