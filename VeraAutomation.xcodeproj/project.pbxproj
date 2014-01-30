@@ -12,6 +12,7 @@
 		D20E237818922B5B0093BD42 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D20E237718922B5B0093BD42 /* ToDo.txt */; };
 		D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24541731857F87500FE9C1A /* ActionSheetDelegate.m */; };
 		D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D245417B1857F87900FE9C1A /* AlertViewDelegate.m */; };
+		D25023A3189A0048008C7073 /* OnDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D25023A2189A0048008C7073 /* OnDeviceCell.m */; };
 		D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D268281D1854322C0056620D /* AudioDeviceCell.m */; };
 		D27311391898AE36003570B9 /* SceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D27311381898AE36003570B9 /* SceneCell.m */; };
 		D273113C1898B2A0003570B9 /* VeraAutomationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D273113B1898B2A0003570B9 /* VeraAutomationUtilities.m */; };
@@ -31,6 +32,7 @@
 		D29FE2001853C0B700560018 /* VeraAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1F21853C0B700560018 /* VeraAPI.m */; };
 		D29FE2011853C0B700560018 /* VeraAutomationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1F41853C0B700560018 /* VeraAutomationAppDelegate.m */; };
 		D29FE2051853C0F700560018 /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE2041853C0F700560018 /* DeviceCell.m */; };
+		D2A00AC81899FFC80069709A /* OnDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A00AC71899FFC80069709A /* OnDevicesViewController.m */; };
 		D2A3BD611896BEA700EAC24F /* ScenesRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */; };
 		D2A3BD641896BF1300EAC24F /* SceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD631896BF1300EAC24F /* SceneViewController.m */; };
 		D2A3BD671896BF9700EAC24F /* RoomsListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A3BD661896BF9700EAC24F /* RoomsListBaseViewController.m */; };
@@ -56,6 +58,8 @@
 		D24541731857F87500FE9C1A /* ActionSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDelegate.m; sourceTree = "<group>"; };
 		D245417A1857F87900FE9C1A /* AlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewDelegate.h; sourceTree = "<group>"; };
 		D245417B1857F87900FE9C1A /* AlertViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewDelegate.m; sourceTree = "<group>"; };
+		D25023A1189A0048008C7073 /* OnDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnDeviceCell.h; sourceTree = "<group>"; };
+		D25023A2189A0048008C7073 /* OnDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnDeviceCell.m; sourceTree = "<group>"; };
 		D268281C1854322C0056620D /* AudioDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDeviceCell.h; sourceTree = "<group>"; };
 		D268281D1854322C0056620D /* AudioDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDeviceCell.m; sourceTree = "<group>"; };
 		D27311371898AE36003570B9 /* SceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneCell.h; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		D29FE1F41853C0B700560018 /* VeraAutomationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeraAutomationAppDelegate.m; sourceTree = "<group>"; };
 		D29FE2031853C0F700560018 /* DeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceCell.h; sourceTree = "<group>"; };
 		D29FE2041853C0F700560018 /* DeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceCell.m; sourceTree = "<group>"; };
+		D2A00AC61899FFC80069709A /* OnDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnDevicesViewController.h; sourceTree = "<group>"; };
+		D2A00AC71899FFC80069709A /* OnDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnDevicesViewController.m; sourceTree = "<group>"; };
 		D2A3BD5F1896BEA700EAC24F /* ScenesRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenesRoomsViewController.h; sourceTree = "<group>"; };
 		D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenesRoomsViewController.m; sourceTree = "<group>"; };
 		D2A3BD621896BF1300EAC24F /* SceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneViewController.h; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 				D27311381898AE36003570B9 /* SceneCell.m */,
 				D273113D1898B4D3003570B9 /* BaseCell.h */,
 				D273113E1898B4D3003570B9 /* BaseCell.m */,
+				D25023A1189A0048008C7073 /* OnDeviceCell.h */,
+				D25023A2189A0048008C7073 /* OnDeviceCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -311,6 +319,8 @@
 				D2A3BD601896BEA700EAC24F /* ScenesRoomsViewController.m */,
 				D2A3BD621896BF1300EAC24F /* SceneViewController.h */,
 				D2A3BD631896BF1300EAC24F /* SceneViewController.m */,
+				D2A00AC61899FFC80069709A /* OnDevicesViewController.h */,
+				D2A00AC71899FFC80069709A /* OnDevicesViewController.m */,
 				D2A3BD651896BF9700EAC24F /* RoomsListBaseViewController.h */,
 				D2A3BD661896BF9700EAC24F /* RoomsListBaseViewController.m */,
 				D2A3BD681896C07A00EAC24F /* RoomBaseViewController.h */,
@@ -446,10 +456,12 @@
 				D27311391898AE36003570B9 /* SceneCell.m in Sources */,
 				D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */,
 				D273113C1898B2A0003570B9 /* VeraAutomationUtilities.m in Sources */,
+				D2A00AC81899FFC80069709A /* OnDevicesViewController.m in Sources */,
 				D2D1226C1857F70D00A886F9 /* AudioRoomsViewController.m in Sources */,
 				D28C1FBC185174600069B8B9 /* main.m in Sources */,
 				D29FE1F81853C0B700560018 /* VeraRoom.m in Sources */,
 				D2D1226F1857F70D00A886F9 /* RoomsViewController.m in Sources */,
+				D25023A3189A0048008C7073 /* OnDeviceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

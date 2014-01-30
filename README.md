@@ -36,6 +36,8 @@ Leaf icon by Arthy.P and is in the public domain.
 
 Cinema icon by Saman Bemel-Benrud and is in the public domain.
 
+Power icon by Amos and is in the public domain
+
 Source Code
 -
 [ActionSheetDelegate](https://github.com/woolsweater/ActionSheetDelegate) by [Joshua Caswell](woolsweatersoft@gmail.com) and is in the public domain.
@@ -53,7 +55,8 @@ Source Code
 ToDo
 ==============
 * Fix issues where login prompt comes up on failed connection
-* Add in climate control
+* Add in controlling locks
+* Add in tab that shows devices that are on
 
 License
 ==========
