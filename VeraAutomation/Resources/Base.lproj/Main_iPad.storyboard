@@ -31,7 +31,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXK-R4-lDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="-3070"/>
+            <point key="canvasLocation" x="1169" y="-2430"/>
         </scene>
         <!--Split View Controller - Switches-->
         <scene sceneID="49X-Lx-BEc">
@@ -46,7 +46,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iA3-01-bpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2431" y="-2556"/>
+            <point key="canvasLocation" x="-1427" y="-1892"/>
         </scene>
         <!--Room Devices View Controller-->
         <scene sceneID="VfS-EV-euf">
@@ -122,7 +122,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2L-Qz-pGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2733" y="-1152"/>
+            <point key="canvasLocation" x="1349" y="-1392"/>
         </scene>
         <!--Audio Rooms View Controller - Audio-->
         <scene sceneID="cWS-Wf-YK6">
@@ -151,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFg-J6-4g3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2185" y="1708"/>
+            <point key="canvasLocation" x="1209" y="-228"/>
         </scene>
         <!--Audio Room View Controller-->
         <scene sceneID="W0h-FZ-JhC">
@@ -294,7 +294,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVS-wi-0L9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3579" y="274"/>
+            <point key="canvasLocation" x="1407" y="778"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="23o-VT-YIO">
@@ -311,6 +311,8 @@
                         <segue destination="qL6-5t-Wrc" kind="relationship" relationship="viewControllers" id="Z8L-a3-Zfv"/>
                         <segue destination="TZn-vY-rlB" kind="relationship" relationship="viewControllers" id="m8g-CE-n8y"/>
                         <segue destination="oWP-0f-AKK" kind="relationship" relationship="viewControllers" id="Tmb-To-Qla"/>
+                        <segue destination="uro-kL-7DU" kind="relationship" relationship="viewControllers" id="Pch-EY-8TW"/>
+                        <segue destination="Zki-9q-ptN" kind="relationship" relationship="viewControllers" id="yy4-6R-9qw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSq-AA-VR0" sceneMemberID="firstResponder"/>
@@ -334,7 +336,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1b-rL-tVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-405" y="-3230"/>
+            <point key="canvasLocation" x="287" y="-2466"/>
         </scene>
         <!--Split View Controller - Audio-->
         <scene sceneID="PKP-H3-QJ6">
@@ -349,7 +351,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dI7-uV-zhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2358" y="-404"/>
+            <point key="canvasLocation" x="-1366" y="-64"/>
         </scene>
         <!--On Devices View Controller - On-->
         <scene sceneID="jPL-bC-hcL">
@@ -402,7 +404,79 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zie-6c-tq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="3206"/>
+            <point key="canvasLocation" x="-326" y="3494"/>
+        </scene>
+        <!--Climate View Controller - Climate-->
+        <scene sceneID="rsC-PP-fZ0">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="yhw-tG-jB8" customClass="ClimateViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="rfn-b5-Bnj">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZEL-pZ-a7f">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="4Yq-dR-1tC">
+                                <rect key="frame" x="5" y="69" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="yhw-tG-jB8" id="YtR-A6-OzA"/>
+                            <outlet property="delegate" destination="yhw-tG-jB8" id="vxg-Yq-YJ0"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Climate" id="viT-oH-Ncx"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQx-ot-IRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-320" y="4788"/>
+        </scene>
+        <!--Locks View Controller - Locks-->
+        <scene sceneID="ACP-BD-GGI">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="jOU-T3-6GU" customClass="LocksViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="V7T-lf-ZB2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X5L-JQ-PU0">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LockCell" id="UHV-LS-FRB">
+                                <rect key="frame" x="5" y="69" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jOU-T3-6GU" id="Yzu-Iq-XT6"/>
+                            <outlet property="delegate" destination="jOU-T3-6GU" id="i8T-b2-fev"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Locks" id="uU1-et-oJE"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6x1-Yo-c2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="6016"/>
         </scene>
         <!--Navigation Controller - Audio-->
         <scene sceneID="S2J-By-3fl">
@@ -421,7 +495,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1l-21-reL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-70" y="1244"/>
+            <point key="canvasLocation" x="434" y="-248"/>
         </scene>
         <!--Scenes Rooms View Controller - Root View Controller-->
         <scene sceneID="N6l-9p-brF">
@@ -450,7 +524,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lf6-Rt-VBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="2088"/>
+            <point key="canvasLocation" x="1274" y="2000"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jm7-hW-bjU">
@@ -465,7 +539,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NV-ll-xzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="2088"/>
+            <point key="canvasLocation" x="494" y="1984"/>
         </scene>
         <!--Scene View Controller-->
         <scene sceneID="ZZw-oT-nsx">
@@ -518,7 +592,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUJ-jv-Hpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4011" y="3277"/>
+            <point key="canvasLocation" x="1651" y="3117"/>
         </scene>
         <!--Split View Controller - Scenes-->
         <scene sceneID="bg9-g4-cfx">
@@ -533,7 +607,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsG-Wf-XVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="2556"/>
+            <point key="canvasLocation" x="-1366" y="1796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XA9-gd-kIF">
@@ -551,7 +625,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd3-fl-RDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-1152"/>
+            <point key="canvasLocation" x="227" y="-1404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cz6-yS-gTj">
@@ -569,7 +643,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjS-qf-uLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605" y="274"/>
+            <point key="canvasLocation" x="305" y="806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jbd-d3-S1i">
@@ -587,7 +661,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soR-H5-Brl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037" y="3277"/>
+            <point key="canvasLocation" x="601" y="3097"/>
         </scene>
         <!--Navigation Controller - On-->
         <scene sceneID="5Jr-Gh-Fz1">
@@ -606,11 +680,51 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQL-Dr-RJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1352" y="3206"/>
+            <point key="canvasLocation" x="-1366" y="3494"/>
+        </scene>
+        <!--Navigation Controller - Climate-->
+        <scene sceneID="1Wr-oV-Opf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uro-kL-7DU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Climate" image="climate" id="fWt-W4-gVj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4sD-uE-9Ob">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yhw-tG-jB8" kind="relationship" relationship="rootViewController" id="eA0-we-X6P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8j-6X-xUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1294" y="4788"/>
+        </scene>
+        <!--Navigation Controller - Locks-->
+        <scene sceneID="5Vi-rS-D97">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zki-9q-ptN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locks" image="lock" id="GUP-Vr-9dh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcI-aD-dLv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jOU-T3-6GU" kind="relationship" relationship="rootViewController" id="XMf-0M-mxg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lVH-Ct-91f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1310" y="6016"/>
         </scene>
     </scenes>
     <resources>
+        <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
+        <image name="lock" width="29" height="29"/>
         <image name="power" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
         <image name="scene" width="29" height="29"/>

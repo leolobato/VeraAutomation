@@ -10,7 +10,7 @@ Setup
 This project uses a number of other open source projects and references them using [CocoaPods](http://www.cocoapods.org/). After grabbing the source, switch to the directory and type:
 
 	pod install
-	
+
 Then use the VeraAutomation.xcworkspace file when opening the project. If you don't have CocoaPods installed, please see the CocoaPods website for more information.
 
 Feedback
@@ -36,7 +36,9 @@ Leaf icon by Arthy.P and is in the public domain.
 
 Cinema icon by Saman Bemel-Benrud and is in the public domain.
 
-Power icon by Amos and is in the public domain
+Power icon by Amos and is in the public domain.
+
+Lock icon by Lea Verou and is in the public domain.
 
 Source Code
 -
@@ -63,7 +65,7 @@ License
 The source code or any portion of it may be used in any application used for non-commercial purposes without payment. However, you must attribute the work to me with something like:
 
 Portions &copy;2013-2014 Scott Gruby. All rights reserved.
-	
+
 You must make it clear in your documentation that you are responsible for any application you develop.
 
 If you would like to use the code in a commercial project, please contact me at <licensing@grubysolutions.com>. My terms are pretty reasonable in that I require a copy of whatever your develop (including hardware, if you plan on using it with a piece of hardware other than the VeraLite that I own and you are a hardware manufacturer) and must comply with the terms above.

@@ -19,7 +19,7 @@ static NSTimeInterval sTimeForCheck = 4.0f;
 
 int ddLogLevel = LOG_LEVEL_VERBOSE;
 
-@interface VeraAutomationAppDelegate ()
+@interface VeraAutomationAppDelegate () <UITabBarControllerDelegate>
 @property (nonatomic, strong) NSDate *lastUnitCheck;
 @property (nonatomic, strong) NSTimer *periodicTimer;
 @property (nonatomic, assign) BOOL handlingLogin;
@@ -50,8 +50,92 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	[[UIButton appearanceWhenContainedIn:[UICollectionView class], nil] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
+	UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
+	tabBarController.delegate = self;
+	NSString *selectedVCString = [[NSUserDefaults standardUserDefaults] stringForKey:kSelectedTabDefault];
+	if ([selectedVCString length])
+	{
+		NSUInteger selectedIndex = 0;
+		for (UIViewController *vc in tabBarController.viewControllers)
+		{
+			UIViewController *viewController = vc;
+			if ([vc isKindOfClass:[UINavigationController class]])
+			{
+				viewController = ((UINavigationController *) vc).topViewController;
+			}
+			
+			NSString *vcClass = NSStringFromClass([viewController class]);
+			if (vcClass && [vcClass isEqualToString:selectedVCString])
+			{
+				break;
+			}
+			
+			selectedIndex++;
+		}
+		
+		tabBarController.selectedIndex = selectedIndex;
+	}
+	
+	NSArray *orderdViewControllers = [[NSUserDefaults standardUserDefaults] arrayForKey:kTabOrderDefault];
+	NSMutableArray *newViewControllerArray = [tabBarController.viewControllers mutableCopy];
+	NSUInteger currentIndex = 0;
+	for (NSString *orderedVCClass in orderdViewControllers)
+	{
+		for (NSUInteger index = 0; index < [newViewControllerArray count]; index++)
+		{
+			UIViewController *vc = newViewControllerArray[index];
+			if ([vc isKindOfClass:[UINavigationController class]])
+			{
+				vc = ((UINavigationController *) vc).topViewController;
+			}
+			
+			if ([NSStringFromClass([vc class]) isEqualToString:orderedVCClass])
+			{
+				[newViewControllerArray exchangeObjectAtIndex:currentIndex withObjectAtIndex:index];
+				break;
+			}
+		}
+		
+		currentIndex++;
+	}
+	
+	tabBarController.viewControllers = newViewControllerArray;
+	
 	return YES;
 }
+
+- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+{
+	if (changed)
+	{
+		NSMutableArray *orderedViewControllers = [NSMutableArray new];
+		for (UIViewController *vc in viewControllers)
+		{
+			UIViewController *viewController = vc;
+			if ([viewController isKindOfClass:[UINavigationController class]])
+			{
+				viewController = ((UINavigationController *) viewController).topViewController;
+			}
+			NSString *vcClass = NSStringFromClass([viewController class]);
+			[orderedViewControllers addObject:vcClass];
+		}
+		
+		[[NSUserDefaults standardUserDefaults] setObject:orderedViewControllers forKey:kTabOrderDefault];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+	if ([viewController isKindOfClass:[UINavigationController class]])
+	{
+		viewController = ((UINavigationController *) viewController).topViewController;
+	}
+	NSString *vcClass = NSStringFromClass([viewController class]);
+	[[NSUserDefaults standardUserDefaults] setObject:vcClass forKey:kSelectedTabDefault];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

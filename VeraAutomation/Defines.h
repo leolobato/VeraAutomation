@@ -27,6 +27,9 @@ extern NSString *kUsernameKey;
 
 extern NSString *kDeviceInfoNotification;
 extern NSString *kDeviceUpdatedNotification;
+
+extern NSString *kTabOrderDefault;
+extern NSString *kSelectedTabDefault;
 #endif
 
 #endif
