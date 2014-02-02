@@ -7,43 +7,70 @@
 //
 
 #import "ClimateViewController.h"
+#import "VeraRoom.h"
+#import "VeraDevice.h"
+#import "VeraAPI.h"
+#import "VeraUnitInfo.h"
+#import "ClimateCell.h"
 
 @interface ClimateViewController ()
-
+@property (nonatomic, strong) NSArray *devices;
 @end
 
 @implementation ClimateViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void) viewDidLoad
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+	[super viewDidLoad];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unitInfoChanged:) name:kDeviceInfoNotification object:nil];
 }
 
-- (void)viewDidLoad
+- (void) refreshRoom
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	NSMutableArray *deviceArray = [NSMutableArray array];
+	for (VeraRoom *room in [VeraAutomationAppDelegate appDelegate].api.unitInfo.rooms)
+	{
+		NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:room forType:VeraDeviceTypeThermostat];
+		for (VeraDevice *device in devices)
+		{
+			if (device.status == 1)
+			{
+				[deviceArray addObject:device];
+			}
+		}
+	}
+	
+	self.devices = deviceArray;
+	[self.collectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super viewDidAppear:animated];
+	if ([self.devices count] == 0)
+	{
+		[self refreshRoom];
+	}
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	ClimateCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ClimateCell" forIndexPath:indexPath];
+	VeraDevice *device = nil;
+	if (indexPath.row < [self.devices count])
+	{
+		device = self.devices[indexPath.row];
+	}
+	
+	//	[cell setDeviceTitle:device.name];
+	return cell;
 }
-*/
+
+- (void) unitInfoChanged:(NSNotification *) notification
+{
+	[self refreshRoom];
+	[self.collectionView reloadData];
+}
+
 
 @end

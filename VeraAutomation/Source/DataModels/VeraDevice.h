@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 @property (nonatomic, assign) NSInteger parent;
 @property (nonatomic, strong) NSString *humidity;
 @property (nonatomic, strong) NSString *lasttrip;
-@property (nonatomic, strong) NSString *locked;
+@property (nonatomic, assign) BOOL locked;
 @property (nonatomic, strong) NSString *objectstatusmap;
 @property (nonatomic, assign) NSInteger subcategory;
 @property (nonatomic, strong) NSString *systemVeraRestart;

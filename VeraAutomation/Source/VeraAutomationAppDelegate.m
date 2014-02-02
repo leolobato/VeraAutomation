@@ -368,6 +368,15 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}];
 }
 
+- (void) setLockState:(VeraDevice *) device locked:(BOOL) locked
+{
+	VeraAutomationAppDelegate __weak *weakSelf = self;
+	[self.api setLockState:device locked:locked withHandler:^(NSError *error) {
+		weakSelf.lastUnitCheck = nil;
+		[weakSelf updateUnitInfo];
+	}];
+}
+
 
 + (void)showNotificationWithTitle:(NSString *)title
                          subtitle:(NSString *)subtitle

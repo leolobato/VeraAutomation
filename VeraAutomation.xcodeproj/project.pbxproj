@@ -23,6 +23,8 @@
 		D28C1FB2185174600069B8B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28C1FB1185174600069B8B9 /* CoreGraphics.framework */; };
 		D28C1FB4185174600069B8B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28C1FB3185174600069B8B9 /* UIKit.framework */; };
 		D28C1FBC185174600069B8B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D28C1FBB185174600069B8B9 /* main.m */; };
+		D29B51AD189EC0DA00780338 /* ClimateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B51AC189EC0DA00780338 /* ClimateCell.m */; };
+		D29B51B0189EC0E300780338 /* LockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B51AF189EC0E300780338 /* LockCell.m */; };
 		D29FE1F51853C0B700560018 /* VeraCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1DC1853C0B700560018 /* VeraCategories.m */; };
 		D29FE1F61853C0B700560018 /* VeraDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1DE1853C0B700560018 /* VeraDevice.m */; };
 		D29FE1F71853C0B700560018 /* VeraForwardServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D29FE1E01853C0B700560018 /* VeraForwardServer.m */; };
@@ -85,6 +87,10 @@
 		D28C1FDC185174600069B8B9 /* VeraAutomationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VeraAutomationTests-Info.plist"; sourceTree = "<group>"; };
 		D28C1FDE185174600069B8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D28C1FE0185174600069B8B9 /* VeraAutomationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VeraAutomationTests.m; sourceTree = "<group>"; };
+		D29B51AB189EC0DA00780338 /* ClimateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimateCell.h; sourceTree = "<group>"; };
+		D29B51AC189EC0DA00780338 /* ClimateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimateCell.m; sourceTree = "<group>"; };
+		D29B51AE189EC0E300780338 /* LockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockCell.h; sourceTree = "<group>"; };
+		D29B51AF189EC0E300780338 /* LockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockCell.m; sourceTree = "<group>"; };
 		D29FE1DB1853C0B700560018 /* VeraCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraCategories.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D29FE1DC1853C0B700560018 /* VeraCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VeraCategories.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D29FE1DD1853C0B700560018 /* VeraDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VeraDevice.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -306,6 +312,10 @@
 				D273113E1898B4D3003570B9 /* BaseCell.m */,
 				D25023A1189A0048008C7073 /* OnDeviceCell.h */,
 				D25023A2189A0048008C7073 /* OnDeviceCell.m */,
+				D29B51AB189EC0DA00780338 /* ClimateCell.h */,
+				D29B51AC189EC0DA00780338 /* ClimateCell.m */,
+				D29B51AE189EC0E300780338 /* LockCell.h */,
+				D29B51AF189EC0E300780338 /* LockCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -450,6 +460,7 @@
 				D2A3BD6A1896C07A00EAC24F /* RoomBaseViewController.m in Sources */,
 				D29FE1F71853C0B700560018 /* VeraForwardServer.m in Sources */,
 				D29FE2051853C0F700560018 /* DeviceCell.m in Sources */,
+				D29B51AD189EC0DA00780338 /* ClimateCell.m in Sources */,
 				D273113F1898B4D3003570B9 /* BaseCell.m in Sources */,
 				D29FE1F51853C0B700560018 /* VeraCategories.m in Sources */,
 				D29FE1FA1853C0B700560018 /* VeraSections.m in Sources */,
@@ -469,6 +480,7 @@
 				D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */,
 				D273113C1898B2A0003570B9 /* VeraAutomationUtilities.m in Sources */,
 				D2A00AC81899FFC80069709A /* OnDevicesViewController.m in Sources */,
+				D29B51B0189EC0E300780338 /* LockCell.m in Sources */,
 				D2D1226C1857F70D00A886F9 /* AudioRoomsViewController.m in Sources */,
 				D28C1FBC185174600069B8B9 /* main.m in Sources */,
 				D29FE1F81853C0B700560018 /* VeraRoom.m in Sources */,

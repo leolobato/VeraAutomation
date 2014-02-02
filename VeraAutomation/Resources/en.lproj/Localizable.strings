@@ -22,5 +22,9 @@
 "COMMAND_SENT_INPUT_1_%@" = "%@ has been set to server 1";
 "COMMAND_SENT_INPUT_2_%@" = "%@ has been set to server 2";
 "COMMAND_SENT_INPUT_3_%@" = "%@ has been set to server 3";
-"COMMAND_RUN_SCENE_MESSAGE_%@" = "Running %@.";
+"COMMAND_RUN_SCENE_MESSAGE_%@" = "Running %@";
+"COMMAND_SENT_LOCKING_%@" = "Locking %@";
+"COMMAND_SENT_UNLOCKING_%@" = "Unlocking %@";
+"UNLOCKED_TITLE" = "Unlocked";
+"LOCKED_TITLE" = "Locked";
 

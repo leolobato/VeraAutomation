@@ -391,6 +391,44 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	[self checkForOperationCompletion:operation];
 }
 
+- (void) setLockState:(VeraDevice *) device locked:(BOOL) locked withHandler:(void (^)(NSError *error)) handler
+{
+	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
+	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+	
+	//VeraAPI __weak *weakSelf = self;
+	NSString *requestString = nil;
+	if ([self.unit.ipAddress length])
+	{
+		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:DoorLock1&action=SetTarget&newTargetValue=%d", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, locked];
+	}
+	else
+	{
+		VeraForwardServer *server = [self.unit.forwardServers firstObject];
+		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:DoorLock1&action=SetTarget&newTargetValue=%d", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, locked];
+		
+	}
+	
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		DebugLog(@"responseObject: %@", responseObject);
+		if (handler)
+		{
+			handler(nil);
+		}
+		
+		//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		DebugLog(@"failure: %@", error);
+		if (handler)
+		{
+			handler(nil);
+		}
+	}];
+	
+	[self checkForOperationCompletion:operation];
+}
+
+
 
 - (void) setAudioDevicePower:(BOOL) on device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
 {

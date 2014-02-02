@@ -30,6 +30,7 @@
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level;
 - (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device;
 - (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device;
+- (void) setLockState:(VeraDevice *) device locked:(BOOL) locked;
 
 
 + (void) showNotificationWithTitle:(NSString *)title subtitle:(NSString *)subtitle type:(TSMessageNotificationType)type;

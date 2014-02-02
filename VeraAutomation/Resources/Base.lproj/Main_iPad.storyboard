@@ -421,7 +421,7 @@
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="4Yq-dR-1tC">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="4Yq-dR-1tC" customClass="ClimateCell">
                                 <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -457,14 +457,66 @@
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LockCell" id="UHV-LS-FRB">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LockCell" id="Jck-gq-ECL" customClass="LockCell">
                                 <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="id6-H3-Uoi">
+                                            <rect key="frame" x="5" y="15" width="140" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-Qb-1nJ">
+                                            <rect key="frame" x="5" y="119" width="140" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-YQ-HYe">
+                                            <rect key="frame" x="96" y="55" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="lock_large">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="lockAction:" destination="Jck-gq-ECL" eventType="touchUpInside" id="URw-n9-X6c"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-GT-g1v">
+                                            <rect key="frame" x="14" y="55" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="unlock_large">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="unlockAction:" destination="Jck-gq-ECL" eventType="touchUpInside" id="iO5-wl-GnD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mbx-Qb-1nJ" secondAttribute="trailing" constant="5" id="73Q-3r-YdA"/>
+                                    <constraint firstItem="id6-H3-Uoi" firstAttribute="leading" secondItem="Jck-gq-ECL" secondAttribute="leading" constant="5" id="8Ec-9C-EUX"/>
+                                    <constraint firstAttribute="centerY" secondItem="X2z-YQ-HYe" secondAttribute="centerY" id="AjS-1M-im4"/>
+                                    <constraint firstItem="id6-H3-Uoi" firstAttribute="top" secondItem="Jck-gq-ECL" secondAttribute="top" constant="15" id="BoL-fx-oHS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mbx-Qb-1nJ" secondAttribute="bottom" constant="10" id="JT8-XF-zNq"/>
+                                    <constraint firstItem="X2z-YQ-HYe" firstAttribute="centerY" secondItem="Krd-GT-g1v" secondAttribute="centerY" id="JZ4-7F-o0F"/>
+                                    <constraint firstItem="Mbx-Qb-1nJ" firstAttribute="leading" secondItem="Jck-gq-ECL" secondAttribute="leading" constant="5" id="KND-S7-xjH"/>
+                                    <constraint firstAttribute="trailing" secondItem="id6-H3-Uoi" secondAttribute="trailing" constant="5" id="MgF-cv-fl5"/>
+                                    <constraint firstItem="Krd-GT-g1v" firstAttribute="leading" secondItem="Jck-gq-ECL" secondAttribute="leading" constant="14" id="pmg-Ia-cpP"/>
+                                    <constraint firstAttribute="trailing" secondItem="X2z-YQ-HYe" secondAttribute="trailing" constant="14" id="rpf-RE-Gdn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="statusLabel" destination="Mbx-Qb-1nJ" id="CWY-qT-BmY"/>
+                                    <outlet property="title" destination="id6-H3-Uoi" id="8M4-3I-JfC"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -725,9 +777,11 @@
         <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="lock" width="29" height="29"/>
+        <image name="lock_large" width="40" height="40"/>
         <image name="power" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
         <image name="scene" width="29" height="29"/>
+        <image name="unlock_large" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

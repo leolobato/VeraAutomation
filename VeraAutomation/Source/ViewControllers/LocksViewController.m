@@ -7,43 +7,97 @@
 //
 
 #import "LocksViewController.h"
+#import "VeraRoom.h"
+#import "VeraDevice.h"
+#import "VeraAPI.h"
+#import "VeraUnitInfo.h"
+#import "LockCell.h"
 
-@interface LocksViewController ()
-
+@interface LocksViewController () <LockCellDelegate>
+@property (nonatomic, strong) NSArray *devices;
 @end
 
 @implementation LocksViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void) viewDidLoad
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+	[super viewDidLoad];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unitInfoChanged:) name:kDeviceInfoNotification object:nil];
 }
 
-- (void)viewDidLoad
+- (void) refreshRoom
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	NSMutableArray *deviceArray = [NSMutableArray array];
+	for (VeraRoom *room in [VeraAutomationAppDelegate appDelegate].api.unitInfo.rooms)
+	{
+		NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:room forType:VeraDeviceTypeLock];
+		for (VeraDevice *device in devices)
+		{
+			[deviceArray addObject:device];
+		}
+	}
+	
+	self.devices = deviceArray;
+	[self.collectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super viewDidAppear:animated];
+	if ([self.devices count] == 0)
+	{
+		[self refreshRoom];
+	}
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	LockCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"LockCell" forIndexPath:indexPath];
+	VeraDevice *device = nil;
+	if (indexPath.row < [self.devices count])
+	{
+		device = self.devices[indexPath.row];
+	}
+	
+	cell.delegate = self;
+	cell.device = device;
+	[cell setupCell];
+	return cell;
 }
-*/
+
+- (void) unitInfoChanged:(NSNotification *) notification
+{
+	[self refreshRoom];
+	[self.collectionView reloadData];
+}
+
+- (void) lockDevice:(VeraDevice *) device
+{
+	[self setDevice:device status:YES];
+	[[VeraAutomationAppDelegate appDelegate] setLockState:device locked:YES];
+}
+
+- (void) unlockDevice:(VeraDevice *) device
+{
+	[self setDevice:device status:NO];
+	[[VeraAutomationAppDelegate appDelegate] setLockState:device locked:NO];
+}
+
+- (void) setDevice:(VeraDevice *) device status:(BOOL) locked
+{
+	NSString *subtitleString = nil;
+	if (locked)
+	{
+		subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_LOCKING_%@", nil), device.name];
+	}
+	else
+	{
+		subtitleString = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_UNLOCKING_%@", nil), device.name];
+	}
+	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+												subtitle:subtitleString
+													type:TSMessageNotificationTypeSuccess];
+}
+
 
 @end

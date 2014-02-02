@@ -72,7 +72,7 @@ NSString *const kVeraDevicesIp = @"ip";
 		_parent = [dict[kVeraDevicesParent] integerValue];
 		_humidity = dict[kVeraDevicesHumidity];
 		_lasttrip = dict[kVeraDevicesLasttrip];
-		_locked = dict[kVeraDevicesLocked];
+		_locked = [dict[kVeraDevicesLocked] boolValue];
 		_objectstatusmap = dict[kVeraDevicesObjectstatusmap];
 		_subcategory = [dict[kVeraDevicesSubcategory] integerValue];
 		_systemVeraRestart = dict[kVeraDevicesSystemVeraRestart];
@@ -128,11 +128,8 @@ NSString *const kVeraDevicesIp = @"ip";
 		mutableDict[kVeraDevicesLasttrip] = self.lasttrip;
 	}
 	
-	if (self.locked)
-	{
-		mutableDict[kVeraDevicesLocked] = self.locked;
-	}
-	
+	mutableDict[kVeraDevicesLocked] = [NSNumber numberWithBool:self.locked];
+
     if (self.objectstatusmap)
 	{
 		mutableDict[kVeraDevicesObjectstatusmap] = self.objectstatusmap;

@@ -520,14 +520,66 @@
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LockCell" id="TG4-Xk-GWH">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LockCell" id="TG4-Xk-GWH" customClass="LockCell">
                                 <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="eMT-3h-lAl">
+                                            <rect key="frame" x="5" y="15" width="140" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="CTF-dJ-sFC">
+                                            <rect key="frame" x="5" y="119" width="140" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdI-Ah-Pls">
+                                            <rect key="frame" x="96" y="55" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="lock_large">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="lockAction:" destination="TG4-Xk-GWH" eventType="touchUpInside" id="Gcq-tr-409"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-dh-jt7">
+                                            <rect key="frame" x="14" y="55" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="unlock_large">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="unlockAction:" destination="TG4-Xk-GWH" eventType="touchUpInside" id="cXQ-le-al7"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="MdI-Ah-Pls" secondAttribute="centerY" id="1R0-Vn-dQH"/>
+                                    <constraint firstItem="eMT-3h-lAl" firstAttribute="leading" secondItem="TG4-Xk-GWH" secondAttribute="leading" constant="5" id="LNV-6i-XXx"/>
+                                    <constraint firstItem="eMT-3h-lAl" firstAttribute="top" secondItem="TG4-Xk-GWH" secondAttribute="top" constant="15" id="SAQ-C0-ujf"/>
+                                    <constraint firstItem="MdI-Ah-Pls" firstAttribute="centerY" secondItem="1hb-dh-jt7" secondAttribute="centerY" id="YY6-7Y-s56"/>
+                                    <constraint firstItem="1hb-dh-jt7" firstAttribute="leading" secondItem="TG4-Xk-GWH" secondAttribute="leading" constant="14" id="a32-wk-AOj"/>
+                                    <constraint firstAttribute="bottom" secondItem="CTF-dJ-sFC" secondAttribute="bottom" constant="10" id="faH-pK-BJb"/>
+                                    <constraint firstAttribute="trailing" secondItem="MdI-Ah-Pls" secondAttribute="trailing" constant="14" id="m3M-7U-cLm"/>
+                                    <constraint firstAttribute="trailing" secondItem="eMT-3h-lAl" secondAttribute="trailing" constant="5" id="uZC-MC-fSQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="CTF-dJ-sFC" secondAttribute="trailing" constant="5" id="yOL-8y-ipD"/>
+                                    <constraint firstItem="CTF-dJ-sFC" firstAttribute="leading" secondItem="TG4-Xk-GWH" secondAttribute="leading" constant="5" id="zua-uD-icJ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="statusLabel" destination="CTF-dJ-sFC" id="SPF-uS-yrl"/>
+                                    <outlet property="title" destination="eMT-3h-lAl" id="lDh-Wq-gOK"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -556,7 +608,7 @@
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="iT0-7s-vjl">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="iT0-7s-vjl" customClass="ClimateCell">
                                 <rect key="frame" x="5" y="69" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -639,9 +691,11 @@
         <image name="climate" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="lock" width="29" height="29"/>
+        <image name="lock_large" width="40" height="40"/>
         <image name="power" width="29" height="29"/>
         <image name="radio" width="29" height="29"/>
         <image name="scene" width="29" height="29"/>
+        <image name="unlock_large" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
