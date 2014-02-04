@@ -602,20 +602,118 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GkU-oC-f9c">
-                            <size key="itemSize" width="150" height="150"/>
+                            <size key="itemSize" width="300" height="250"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="iT0-7s-vjl" customClass="ClimateCell">
-                                <rect key="frame" x="5" y="69" width="150" height="150"/>
+                                <rect key="frame" x="10" y="69" width="300" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="biO-hS-whi">
+                                            <rect key="frame" x="20" y="69" width="260" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Off"/>
+                                                <segment title="Auto"/>
+                                                <segment title="Cool"/>
+                                                <segment title="Heat"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="hvacStageChanged:" destination="iT0-7s-vjl" eventType="valueChanged" id="2Nw-qL-vsL"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yah-Dg-ZqP">
+                                            <rect key="frame" x="20" y="116" width="29" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l98-AZ-LTv">
+                                            <rect key="frame" x="107" y="15" width="87" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minimumValue="50" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ih3-E7-V4j">
+                                            <rect key="frame" x="186" y="159" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <action selector="heatStepperChanged:" destination="iT0-7s-vjl" eventType="valueChanged" id="cA1-uO-ohq"/>
+                                            </connections>
+                                        </stepper>
+                                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minimumValue="50" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ugo-jl-VRk">
+                                            <rect key="frame" x="186" y="201" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <action selector="coolStepperChanged:" destination="iT0-7s-vjl" eventType="valueChanged" id="uqO-az-Eoh"/>
+                                            </connections>
+                                        </stepper>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8K-dX-j7w">
+                                            <rect key="frame" x="20" y="163" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.75" green="0.17768313290000001" blue="0.1678045068" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmF-Zx-BjM">
+                                            <rect key="frame" x="20" y="205" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-II-W9S">
+                                            <rect key="frame" x="186" y="113" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="94" id="z7n-G8-7DF"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Auto"/>
+                                                <segment title="On"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="fanChanged:" destination="iT0-7s-vjl" eventType="valueChanged" id="uBp-8M-T9a"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="biO-hS-whi" firstAttribute="leading" secondItem="iT0-7s-vjl" secondAttribute="leading" constant="20" id="2sp-6P-31n"/>
+                                    <constraint firstItem="VSN-II-W9S" firstAttribute="centerY" secondItem="Yah-Dg-ZqP" secondAttribute="centerY" constant="0.5" id="4qK-K1-sID"/>
+                                    <constraint firstItem="ih3-E7-V4j" firstAttribute="top" secondItem="VSN-II-W9S" secondAttribute="bottom" constant="18" id="5XW-3t-hf8"/>
+                                    <constraint firstItem="VSN-II-W9S" firstAttribute="trailing" secondItem="biO-hS-whi" secondAttribute="trailing" id="69a-es-hw9"/>
+                                    <constraint firstItem="VSN-II-W9S" firstAttribute="top" secondItem="biO-hS-whi" secondAttribute="bottom" constant="16" id="6BJ-53-ZkX"/>
+                                    <constraint firstItem="zmF-Zx-BjM" firstAttribute="leading" secondItem="t8K-dX-j7w" secondAttribute="leading" id="88d-bl-11O"/>
+                                    <constraint firstItem="ih3-E7-V4j" firstAttribute="trailing" secondItem="ugo-jl-VRk" secondAttribute="trailing" id="AjP-Wf-eZS"/>
+                                    <constraint firstAttribute="trailing" secondItem="biO-hS-whi" secondAttribute="trailing" constant="20" id="EqF-hz-qzj"/>
+                                    <constraint firstItem="l98-AZ-LTv" firstAttribute="top" secondItem="iT0-7s-vjl" secondAttribute="top" constant="15" id="FUq-cR-5KY"/>
+                                    <constraint firstItem="ih3-E7-V4j" firstAttribute="centerY" secondItem="t8K-dX-j7w" secondAttribute="centerY" id="Mtj-i1-hsw"/>
+                                    <constraint firstItem="Yah-Dg-ZqP" firstAttribute="leading" secondItem="t8K-dX-j7w" secondAttribute="leading" id="S6c-rR-HA6"/>
+                                    <constraint firstItem="biO-hS-whi" firstAttribute="top" secondItem="l98-AZ-LTv" secondAttribute="bottom" constant="11" id="fRL-KM-LSa"/>
+                                    <constraint firstItem="ih3-E7-V4j" firstAttribute="trailing" secondItem="VSN-II-W9S" secondAttribute="trailing" id="qIu-5I-Uo1"/>
+                                    <constraint firstItem="biO-hS-whi" firstAttribute="leading" secondItem="Yah-Dg-ZqP" secondAttribute="leading" id="uCa-cI-rbO"/>
+                                    <constraint firstItem="ugo-jl-VRk" firstAttribute="centerY" secondItem="zmF-Zx-BjM" secondAttribute="centerY" id="x3a-jL-yJm"/>
+                                    <constraint firstAttribute="centerX" secondItem="l98-AZ-LTv" secondAttribute="centerX" constant="-0.5" id="xd8-Dw-0zf"/>
+                                    <constraint firstItem="ugo-jl-VRk" firstAttribute="top" secondItem="ih3-E7-V4j" secondAttribute="bottom" constant="13" id="zBK-w5-r3P"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coolSetLabel" destination="zmF-Zx-BjM" id="yaw-2a-ffB"/>
+                                    <outlet property="coolStepper" destination="ugo-jl-VRk" id="Y0w-8t-iVU"/>
+                                    <outlet property="currentTemperatureLabel" destination="l98-AZ-LTv" id="04Y-sJ-ep7"/>
+                                    <outlet property="fanSegmentedControl" destination="VSN-II-W9S" id="hZi-iI-iQK"/>
+                                    <outlet property="heatSetLabel" destination="t8K-dX-j7w" id="hU6-dj-h3t"/>
+                                    <outlet property="heatStepper" destination="ih3-E7-V4j" id="luV-64-ieC"/>
+                                    <outlet property="hvacSegmentedControl" destination="biO-hS-whi" id="wNr-F5-qLQ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

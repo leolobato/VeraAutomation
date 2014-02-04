@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 @property (nonatomic, assign) NSInteger subcategory;
 @property (nonatomic, strong) NSString *systemVeraRestart;
 @property (nonatomic, strong) NSString *systemLuupRestart;
-@property (nonatomic, strong) NSString *temperature;
+@property (nonatomic, assign) NSUInteger temperature;
 @property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) NSString *memoryAvailable;
 @property (nonatomic, strong) NSString *mode;

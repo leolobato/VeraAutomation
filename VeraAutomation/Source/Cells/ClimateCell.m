@@ -7,25 +7,56 @@
 //
 
 #import "ClimateCell.h"
+#import "VeraDevice.h"
+
+@interface ClimateCell ()
+@property (weak, nonatomic) IBOutlet UILabel *currentTemperatureLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *heatStepper;
+@property (weak, nonatomic) IBOutlet UIStepper *coolStepper;
+@property (weak, nonatomic) IBOutlet UILabel *heatSetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *coolSetLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *hvacSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *fanSegmentedControl;
+
+@end
 
 @implementation ClimateCell
 
-- (id)initWithFrame:(CGRect)frame
+-(void)prepareForReuse
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+	[super prepareForReuse];
+	self.device = nil;
+	[self setupCell];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void) setupCell
 {
-    // Drawing code
+	self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.device.temperature];
+	DebugLog(@"device: %@", self.device);
+	if ([self.device.fanmode caseInsensitiveCompare:@"auto"] == NSOrderedSame)
+	{
+		self.fanSegmentedControl.selectedSegmentIndex = 0;
+	}
+	else
+	{
+		self.fanSegmentedControl.selectedSegmentIndex = 1;
+	}
 }
-*/
 
+
+- (IBAction)heatStepperChanged:(id)sender
+{
+}
+
+- (IBAction)coolStepperChanged:(id)sender
+{
+}
+
+- (IBAction)fanChanged:(id)sender
+{
+}
+
+- (IBAction)hvacStageChanged:(id)sender
+{
+}
 @end

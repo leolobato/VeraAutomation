@@ -77,7 +77,7 @@ NSString *const kVeraDevicesIp = @"ip";
 		_subcategory = [dict[kVeraDevicesSubcategory] integerValue];
 		_systemVeraRestart = dict[kVeraDevicesSystemVeraRestart];
 		_systemLuupRestart = dict[kVeraDevicesSystemLuupRestart];
-		_temperature = dict[kVeraDevicesTemperature];
+		_temperature = [dict[kVeraDevicesTemperature] integerValue];
 		_comment = dict[kVeraDevicesComment];
 		_memoryAvailable = dict[kVeraDevicesMemoryAvailable];
 		_mode = dict[kVeraDevicesMode];
@@ -147,10 +147,7 @@ NSString *const kVeraDevicesIp = @"ip";
 		mutableDict[kVeraDevicesSystemLuupRestart] = self.systemLuupRestart;
 	}
 	
-	if (self.temperature)
-	{
-		mutableDict[kVeraDevicesTemperature] = self.temperature;
-	}
+	mutableDict[kVeraDevicesTemperature] = [NSNumber numberWithInteger:self.temperature];
 	
 	if (self.comment)
 	{

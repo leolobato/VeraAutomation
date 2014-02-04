@@ -33,10 +33,7 @@
 		NSArray *devices = [[VeraAutomationAppDelegate appDelegate].api devicesForRoom:room forType:VeraDeviceTypeThermostat];
 		for (VeraDevice *device in devices)
 		{
-			if (device.status == 1)
-			{
-				[deviceArray addObject:device];
-			}
+			[deviceArray addObject:device];
 		}
 	}
 	
@@ -62,7 +59,9 @@
 		device = self.devices[indexPath.row];
 	}
 	
-	//	[cell setDeviceTitle:device.name];
+	cell.device = device;
+	[cell setupCell];
+	
 	return cell;
 }
 

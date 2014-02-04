@@ -415,20 +415,119 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZEL-pZ-a7f">
-                            <size key="itemSize" width="150" height="150"/>
+                            <size key="itemSize" width="300" height="250"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="4Yq-dR-1tC" customClass="ClimateCell">
-                                <rect key="frame" x="5" y="69" width="150" height="150"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClimateCell" id="N5H-a0-NEK" customClass="ClimateCell">
+                                <rect key="frame" x="5" y="69" width="300" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bE2-HI-stB">
+                                            <rect key="frame" x="20" y="69" width="260" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Off"/>
+                                                <segment title="Auto"/>
+                                                <segment title="Cool"/>
+                                                <segment title="Heat"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="hvacStageChanged:" destination="N5H-a0-NEK" eventType="valueChanged" id="azp-5X-QtL"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgD-Ud-Ka9">
+                                            <rect key="frame" x="20" y="119" width="29" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZe-7t-9OC">
+                                            <rect key="frame" x="107" y="15" width="87" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minimumValue="50" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="A46-GI-N6A">
+                                            <rect key="frame" x="186" y="159" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <action selector="heatStepperChanged:" destination="N5H-a0-NEK" eventType="valueChanged" id="WBt-W8-0xb"/>
+                                            </connections>
+                                        </stepper>
+                                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minimumValue="50" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-qo-RMk">
+                                            <rect key="frame" x="186" y="201" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <action selector="coolStepperChanged:" destination="N5H-a0-NEK" eventType="valueChanged" id="ugR-i5-ofe"/>
+                                            </connections>
+                                        </stepper>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCU-5d-gM3">
+                                            <rect key="frame" x="20" y="163" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.75" green="0.17768313290000001" blue="0.1678045068" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1K-Tx-1bC">
+                                            <rect key="frame" x="20" y="205" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YIO-c3-PQt">
+                                            <rect key="frame" x="186" y="116" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="94" id="oPS-gJ-yaP"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Auto"/>
+                                                <segment title="On"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="fanChanged:" destination="N5H-a0-NEK" eventType="valueChanged" id="OOg-M7-i0G"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="YIO-c3-PQt" firstAttribute="trailing" secondItem="A46-GI-N6A" secondAttribute="trailing" id="2pE-qx-8FN"/>
+                                    <constraint firstItem="z1K-Tx-1bC" firstAttribute="leading" secondItem="GCU-5d-gM3" secondAttribute="leading" id="4er-k0-IU7"/>
+                                    <constraint firstItem="cLd-qo-RMk" firstAttribute="centerY" secondItem="z1K-Tx-1bC" secondAttribute="centerY" id="5dp-s9-Ujl"/>
+                                    <constraint firstItem="bE2-HI-stB" firstAttribute="leading" secondItem="YIO-c3-PQt" secondAttribute="leading" constant="-166" id="8sc-kp-gK9"/>
+                                    <constraint firstItem="cLd-qo-RMk" firstAttribute="top" secondItem="A46-GI-N6A" secondAttribute="bottom" constant="13" id="DVH-0J-Vhh"/>
+                                    <constraint firstItem="bE2-HI-stB" firstAttribute="leading" secondItem="KgD-Ud-Ka9" secondAttribute="leading" id="EsJ-f4-hnT"/>
+                                    <constraint firstItem="gZe-7t-9OC" firstAttribute="top" secondItem="N5H-a0-NEK" secondAttribute="top" constant="15" id="JiM-QW-qTF"/>
+                                    <constraint firstItem="A46-GI-N6A" firstAttribute="top" secondItem="YIO-c3-PQt" secondAttribute="bottom" constant="15" id="KFw-lN-dxZ"/>
+                                    <constraint firstItem="KgD-Ud-Ka9" firstAttribute="centerY" secondItem="YIO-c3-PQt" secondAttribute="centerY" constant="-0.5" id="LLe-Yf-n3P"/>
+                                    <constraint firstAttribute="trailing" secondItem="bE2-HI-stB" secondAttribute="trailing" constant="20" id="S33-87-NWF"/>
+                                    <constraint firstItem="KgD-Ud-Ka9" firstAttribute="leading" secondItem="GCU-5d-gM3" secondAttribute="leading" id="WLH-n1-sWa"/>
+                                    <constraint firstItem="cLd-qo-RMk" firstAttribute="trailing" secondItem="YIO-c3-PQt" secondAttribute="trailing" id="Zth-p1-7R0"/>
+                                    <constraint firstItem="bE2-HI-stB" firstAttribute="leading" secondItem="N5H-a0-NEK" secondAttribute="leading" constant="20" id="duR-kR-fcn"/>
+                                    <constraint firstItem="YIO-c3-PQt" firstAttribute="top" secondItem="bE2-HI-stB" secondAttribute="bottom" constant="19" id="iiM-Qc-qKM"/>
+                                    <constraint firstAttribute="centerX" secondItem="gZe-7t-9OC" secondAttribute="centerX" constant="-0.5" id="mTc-3b-upF"/>
+                                    <constraint firstItem="A46-GI-N6A" firstAttribute="trailing" secondItem="cLd-qo-RMk" secondAttribute="trailing" id="mmA-JS-ldB"/>
+                                    <constraint firstItem="bE2-HI-stB" firstAttribute="top" secondItem="gZe-7t-9OC" secondAttribute="bottom" constant="11" id="n7S-Up-dLm"/>
+                                    <constraint firstItem="A46-GI-N6A" firstAttribute="centerY" secondItem="GCU-5d-gM3" secondAttribute="centerY" id="uFR-vr-jV3"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coolSetLabel" destination="z1K-Tx-1bC" id="Ing-iC-eDR"/>
+                                    <outlet property="coolStepper" destination="cLd-qo-RMk" id="Sgt-pG-Ru5"/>
+                                    <outlet property="currentTemperatureLabel" destination="gZe-7t-9OC" id="CXH-U9-vPP"/>
+                                    <outlet property="fanSegmentedControl" destination="YIO-c3-PQt" id="QT9-53-HSY"/>
+                                    <outlet property="heatSetLabel" destination="GCU-5d-gM3" id="zGw-gO-w8l"/>
+                                    <outlet property="heatStepper" destination="A46-GI-N6A" id="SIf-c8-8es"/>
+                                    <outlet property="hvacSegmentedControl" destination="bE2-HI-stB" id="QlY-Os-zTk"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

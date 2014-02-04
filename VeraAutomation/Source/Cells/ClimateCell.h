@@ -8,6 +8,8 @@
 
 #import "BaseCell.h"
 
+@class VeraDevice;
 @interface ClimateCell : BaseCell
-
+@property (nonatomic, strong) VeraDevice *device;
+- (void) setupCell;
 @end
