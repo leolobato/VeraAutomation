@@ -80,8 +80,25 @@ NSString *const kVeraDevicesIp = @"ip";
 		_temperature = [dict[kVeraDevicesTemperature] integerValue];
 		_comment = dict[kVeraDevicesComment];
 		_memoryAvailable = dict[kVeraDevicesMemoryAvailable];
-		_mode = dict[kVeraDevicesMode];
-		_heatsp = dict[kVeraDevicesHeatsp];
+		NSString *mode = dict[kVeraDevicesMode];
+		if (mode && [mode caseInsensitiveCompare:@"off"] == NSOrderedSame)
+		{
+			_hvacMode = VeraHVACModeOff;
+		}
+		else if (mode && [mode caseInsensitiveCompare:@"HeatOn"] == NSOrderedSame)
+		{
+			_hvacMode = VeraHVACModeHeat;
+		}
+		else if (mode && [mode caseInsensitiveCompare:@"CoolOn"] == NSOrderedSame)
+		{
+			_hvacMode = VeraHVACModeCool;
+		}
+		else if (mode && [mode caseInsensitiveCompare:@"AutoChangeOver"] == NSOrderedSame)
+		{
+			_hvacMode = VeraHVACModeAuto;
+		}
+		
+		_heatTemperatureSetPoint = [dict[kVeraDevicesHeatsp] integerValue];
 		_conditionsatisfied = dict[kVeraDevicesConditionsatisfied];
 		_vendorstatusdata = dict[kVeraDevicesVendorstatusdata];
 		_detailedarmmode = dict[kVeraDevicesDetailedarmmode];
@@ -89,7 +106,7 @@ NSString *const kVeraDevicesIp = @"ip";
 		_name = dict[kVeraDevicesName];
 		_armmode = dict[kVeraDevicesArmmode];
 		_armed = dict[kVeraDevicesArmed];
-		_coolsp = dict[kVeraDevicesCoolsp];
+		_coolTemperatureSetPoint = [dict[kVeraDevicesCoolsp] integerValue];
 		_status = [dict[kVeraDevicesStatus] integerValue];
 		_vendorstatus = dict[kVeraDevicesVendorstatus];
 		_hvacstate = dict[kVeraDevicesHvacstate];
@@ -98,7 +115,15 @@ NSString *const kVeraDevicesIp = @"ip";
 		_memoryUsed = dict[kVeraDevicesMemoryUsed];
 		_tripped = dict[kVeraDevicesTripped];
 		_altid = dict[kVeraDevicesAltid];
-		_fanmode = dict[kVeraDevicesFanmode];
+		NSString *tempMode = dict[kVeraDevicesFanmode];
+		if (tempMode && [tempMode caseInsensitiveCompare:@"auto"] != NSOrderedSame)
+		{
+			_fanmode = VeraFanModeOn;
+		}
+		else
+		{
+			_fanmode = VeraFanModeAuto;
+		}
 		_vendorstatuscode = dict[kVeraDevicesVendorstatuscode];
 		_room = [dict[kVeraDevicesRoom] integerValue];
 		_ip = dict[kVeraDevicesIp];
@@ -159,15 +184,34 @@ NSString *const kVeraDevicesIp = @"ip";
 		mutableDict[kVeraDevicesMemoryAvailable] = self.memoryAvailable;
 	}
 	
-	if (self.mode)
+	switch (self.hvacMode)
 	{
-		mutableDict[kVeraDevicesMode] = self.mode;
+		case VeraHVACModeAuto:
+		{
+			mutableDict[kVeraDevicesMode] = @"Auto";
+			break;
+		}
+			
+		case VeraHVACModeOff:
+		{
+			mutableDict[kVeraDevicesMode] = @"Off";
+			break;
+		}
+
+		case VeraHVACModeCool:
+		{
+			mutableDict[kVeraDevicesMode] = @"Cool";
+			break;
+		}
+
+		case VeraHVACModeHeat:
+		{
+			mutableDict[kVeraDevicesMode] = @"Heat";
+			break;
+		}
 	}
 	
-	if (self.heatsp)
-	{
-		mutableDict[kVeraDevicesHeatsp] = self.heatsp;
-	}
+	mutableDict[kVeraDevicesHeatsp] = [NSNumber numberWithInteger:self.heatTemperatureSetPoint];
 	
 	if (self.conditionsatisfied)
 	{
@@ -204,10 +248,7 @@ NSString *const kVeraDevicesIp = @"ip";
 		mutableDict[kVeraDevicesArmed] = self.armed;
 	}
 	
-	if (self.coolsp)
-	{
-		mutableDict[kVeraDevicesCoolsp] = self.coolsp;
-	}
+	mutableDict[kVeraDevicesCoolsp] = [NSNumber numberWithInteger:self.coolTemperatureSetPoint];
 	
 	mutableDict[kVeraDevicesStatus] = [NSNumber numberWithInteger:self.status];
 	
@@ -246,9 +287,13 @@ NSString *const kVeraDevicesIp = @"ip";
 		mutableDict[kVeraDevicesAltid] = self.altid;
 	}
 	
-	if (self.fanmode)
+	if (self.fanmode == VeraFanModeAuto)
 	{
-		mutableDict[kVeraDevicesFanmode] = self.fanmode;
+		mutableDict[kVeraDevicesFanmode] = @"Auto";
+	}
+	else
+	{
+		mutableDict[kVeraDevicesFanmode] = @"On";
 	}
 	
 	if (self.vendorstatuscode)

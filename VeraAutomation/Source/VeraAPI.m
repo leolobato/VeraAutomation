@@ -98,16 +98,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	if (self.unit)
 	{
 		NSString *requestString = nil;
-		if ([self.unit.ipAddress length])
-		{
-			requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_sdata&timeout=30&minimumdelay=2000", self.unit.ipAddress];
-		}
-		else
-		{
-			VeraForwardServer *server = [self.unit.forwardServers firstObject];
-			requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_sdata&timeout=60&minimumdelay=2000", server.hostName, self.username, self.password, self.unit.serialNumber];
-			
-		}
+		requestString = [NSString stringWithFormat:@"%@lu_sdata&timeout=30&minimumdelay=2000", [self requestPrefix]];
 		
 		if (self.unitInfo.loadtime > 0)
 		{
@@ -322,17 +313,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, !device.status];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, !device.status];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", [self requestPrefix], (unsigned long) device.deviceIdentifier, !device.status];
 	
 	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
@@ -360,17 +341,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&serviceId=urn:micasaverde-com:serviceId:HomeAutomationGateway1&action=RunScene&SceneNum=%lu", self.unit.ipAddress, (unsigned long) scene.sceneIdentifier];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&serviceId=urn:micasaverde-com:serviceId:HomeAutomationGateway1&action=RunScene&SceneNum=%lu", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) scene.sceneIdentifier];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&serviceId=urn:micasaverde-com:serviceId:HomeAutomationGateway1&action=RunScene&SceneNum=%lu", [self requestPrefix], (unsigned long) scene.sceneIdentifier];
 	
 	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
@@ -397,17 +368,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:DoorLock1&action=SetTarget&newTargetValue=%d", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, locked];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:DoorLock1&action=SetTarget&newTargetValue=%d", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, locked];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:DoorLock1&action=SetTarget&newTargetValue=%d", [self requestPrefix], (unsigned long) device.deviceIdentifier, locked];
 	
 	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
@@ -438,17 +399,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, on];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, on];
-
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:SwitchPower1&action=SetTarget&newTargetValue=%d", [self requestPrefix], (unsigned long) device.deviceIdentifier, on];
 
 	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
@@ -477,17 +428,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Volume1&action=", self.unit.ipAddress, (unsigned long) device.deviceIdentifier];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Volume1&action=", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Volume1&action=", [self requestPrefix], (unsigned long) device.deviceIdentifier];
 
 	if (up)
 	{
@@ -524,17 +465,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:InputSelection1&action=Input%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)input];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:InputSelection1&action=Input%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)input];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:InputSelection1&action=Input%ld", [self requestPrefix], (unsigned long) device.deviceIdentifier, (long)input];
 	
 	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DebugLog(@"responseObject: %@", responseObject);
@@ -563,16 +494,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Misc1&action=", self.unit.ipAddress, (unsigned long) device.deviceIdentifier];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Misc1&action=", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier];
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:micasaverde-com:serviceId:Misc1&action=", [self requestPrefix], (unsigned long) device.deviceIdentifier];
 	
 	if (on)
 	{
@@ -609,17 +531,62 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
 	//VeraAPI __weak *weakSelf = self;
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)level];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)level];
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", [self requestPrefix], (unsigned long) device.deviceIdentifier, (long)level];
+	
+	DebugLog(@"sending request: %@", requestString);
+	
+	AFHTTPRequestOperation *operation = [manager GET:requestString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		DebugLog(@"responseObject: %@", responseObject);
+		if (handler)
+		{
+			handler(nil);
+		}
 		
+		//DebugLog(@"raw data: %@", [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		DebugLog(@"failure: %@", error);
+		if (handler)
+		{
+			handler(nil);
+		}
+	}];
+	
+	[self checkForOperationCompletion:operation];
+}
+
+- (void) setHVACMode:(VeraHVACMode) hvacMode device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
+{
+	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
+	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+	
+	NSString *newMode = nil;
+	switch (hvacMode)
+	{
+		case VeraHVACModeAuto:
+		{
+			newMode = @"AutoChangeOver";
+			break;
+		}
+			
+		case VeraHVACModeOff:
+		{
+			newMode = @"Off";
+			break;
+		}
+
+		case VeraHVACModeHeat:
+		{
+			newMode = @"HeatOn";
+			break;
+		}
+
+		case VeraHVACModeCool:
+		{
+			newMode = @"CoolOn";
+			break;
+		}
 	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:HVAC_UserOperatingMode1&action=SetModeTarget&NewModeTarget=%@", [self requestPrefix], (unsigned long) device.deviceIdentifier, newMode];
 	
 	DebugLog(@"sending request: %@", requestString);
 	
@@ -647,17 +614,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)fanMode];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)fanMode];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:HVAC_FanOperatingMode1&action=SetMode&NewMode=%@", [self requestPrefix], (unsigned long) device.deviceIdentifier, fanMode == VeraFanModeAuto ? @"Auto" : @"ContinuousOn"];
 	
 	DebugLog(@"sending request: %@", requestString);
 	
@@ -680,22 +637,12 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	[self checkForOperationCompletion:operation];
 }
 
-- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
+- (void) setTemperature:(NSUInteger) temperature heat:(BOOL) heat device:(VeraDevice *) device withHandler:(void (^)(NSError *error)) handler
 {
 	VeraHTTPOperationManager *manager = [VeraHTTPOperationManager manager];
 	manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
 	
-	NSString *requestString = nil;
-	if ([self.unit.ipAddress length])
-	{
-		requestString = [NSString stringWithFormat:@"http://%@:3480/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", self.unit.ipAddress, (unsigned long) device.deviceIdentifier, (long)temperature];
-	}
-	else
-	{
-		VeraForwardServer *server = [self.unit.forwardServers firstObject];
-		requestString = [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=%ld", server.hostName, self.username, self.password, self.unit.serialNumber, (unsigned long) device.deviceIdentifier, (long)temperature];
-		
-	}
+	NSString *requestString = [NSString stringWithFormat:@"%@lu_action&DeviceNum=%lu&serviceId=urn:upnp-org:serviceId:TemperatureSetpoint1_%@&action=SetCurrentSetpoint&NewCurrentSetpoint=%ld", [self requestPrefix], (unsigned long) device.deviceIdentifier, heat ? @"Heat" : @"Cool", (long)temperature];
 	
 	DebugLog(@"sending request: %@", requestString);
 	
@@ -717,6 +664,21 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	
 	[self checkForOperationCompletion:operation];
 }
+
+- (NSString *) requestPrefix
+{
+	if ([self.unit.ipAddress length])
+	{
+		return [NSString stringWithFormat:@"http://%@:3480/data_request?id=", self.unit.ipAddress];
+	}
+	else
+	{
+		VeraForwardServer *server = [self.unit.forwardServers firstObject];
+		return [NSString stringWithFormat:@"https://%@/%@/%@/%@/data_request?id=", server.hostName, self.username, self.password, self.unit.serialNumber];
+		
+	}
+}
+
 @end
 
 @implementation VeraUserResponseSerializer

@@ -332,6 +332,11 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
 		device.state = newDevice.state;
 		device.comment = newDevice.comment;
 		device.level = newDevice.level;
+		device.temperature = newDevice.temperature;
+		device.fanmode = newDevice.fanmode;
+		device.heatTemperatureSetPoint = newDevice.heatTemperatureSetPoint;
+		device.coolTemperatureSetPoint = newDevice.coolTemperatureSetPoint;
+		device.hvacMode = newDevice.hvacMode;
 	}
 }
 

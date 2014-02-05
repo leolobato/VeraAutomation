@@ -29,7 +29,8 @@
 - (void) setAllAudioDevicePower:(BOOL) on device:(VeraDevice *) device;
 - (void) setDeviceLevel:(VeraDevice *) device level:(NSInteger) level;
 - (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *) device;
-- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device;
+- (void) setHVACMode:(VeraHVACMode) fanMode device:(VeraDevice *) device;
+- (void) setTemperature:(NSUInteger) temperature heat:(BOOL) heat device:(VeraDevice *) device;
 - (void) setLockState:(VeraDevice *) device locked:(BOOL) locked;
 
 

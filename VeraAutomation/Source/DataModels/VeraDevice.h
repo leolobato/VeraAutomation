@@ -16,6 +16,17 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 	VeraDeviceTypeScene				= 4 // A scene isn't a device, but it is convenient to put here
 };
 
+typedef NS_ENUM(NSInteger, VeraFanMode) {
+	VeraFanModeOn = 0,
+	VeraFanModeAuto
+};
+
+typedef NS_ENUM(NSInteger, VeraHVACMode) {
+	VeraHVACModeOff = 0,
+	VeraHVACModeAuto,
+	VeraHVACModeHeat,
+	VeraHVACModeCool
+};
 
 @interface VeraDevice : NSObject
 
@@ -34,8 +45,8 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 @property (nonatomic, assign) NSUInteger temperature;
 @property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) NSString *memoryAvailable;
-@property (nonatomic, strong) NSString *mode;
-@property (nonatomic, strong) NSString *heatsp;
+@property (nonatomic, assign) VeraHVACMode hvacMode;
+@property (nonatomic, assign) NSUInteger heatTemperatureSetPoint;
 @property (nonatomic, strong) NSString *conditionsatisfied;
 @property (nonatomic, strong) NSString *vendorstatusdata;
 @property (nonatomic, strong) NSString *detailedarmmode;
@@ -43,7 +54,7 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *armmode;
 @property (nonatomic, strong) NSString *armed;
-@property (nonatomic, strong) NSString *coolsp;
+@property (nonatomic, assign) NSUInteger coolTemperatureSetPoint;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSString *vendorstatus;
 @property (nonatomic, strong) NSString *hvacstate;
@@ -52,7 +63,7 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 @property (nonatomic, strong) NSString *memoryUsed;
 @property (nonatomic, strong) NSString *tripped;
 @property (nonatomic, strong) NSString *altid;
-@property (nonatomic, strong) NSString *fanmode;
+@property (nonatomic, assign) VeraFanMode fanmode;
 @property (nonatomic, strong) NSString *vendorstatuscode;
 @property (nonatomic, assign) NSInteger room;
 @property (nonatomic, strong) NSString *ip;

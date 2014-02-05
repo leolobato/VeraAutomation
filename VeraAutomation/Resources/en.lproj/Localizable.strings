@@ -25,6 +25,14 @@
 "COMMAND_RUN_SCENE_MESSAGE_%@" = "Running %@";
 "COMMAND_SENT_LOCKING_%@" = "Locking %@";
 "COMMAND_SENT_UNLOCKING_%@" = "Unlocking %@";
+"COMMAND_SENT_FAN_MODE_AUTO_%@" = "%@ fan set to auto.";
+"COMMAND_SENT_FAN_MODE_OFF_%@" = "%@ fan set to off.";
+"COMMAND_SENT_HVAC_OFF_%@" = "%@ set to off.";
+"COMMAND_SENT_HVAC_AUTO_%@" = "%@ set to auto.";
+"COMMAND_SENT_HVAC_HEAT_%@" = "%@ set to heat.";
+"COMMAND_SENT_HVAC_COOL_%@" = "%@ set to cool.";
+"COMMAND_SENT_HEAT_TEMPERATURE_%@_%ld" = "%@ heating set to %ld.";
+"COMMAND_SENT_COOL_TEMPERATURE_%@_%ld" = "%@ cooling set to %ld.";
 "UNLOCKED_TITLE" = "Unlocked";
 "LOCKED_TITLE" = "Locked";
 

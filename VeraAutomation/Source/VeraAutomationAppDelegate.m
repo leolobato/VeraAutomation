@@ -359,10 +359,19 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}];
 }
 
-- (void) setTemperature:(NSUInteger) temperature device:(VeraDevice *) device
+- (void) setHVACMode:(VeraHVACMode) fanMode device:(VeraDevice *) device
 {
 	VeraAutomationAppDelegate __weak *weakSelf = self;
-	[self.api setTemperature:temperature device:device withHandler:^(NSError *error) {
+	[self.api setHVACMode:fanMode device:device withHandler:^(NSError *error) {
+		weakSelf.lastUnitCheck = nil;
+		[weakSelf updateUnitInfo];
+	}];
+}
+
+- (void) setTemperature:(NSUInteger) temperature heat:(BOOL) heat device:(VeraDevice *) device
+{
+	VeraAutomationAppDelegate __weak *weakSelf = self;
+	[self.api setTemperature:temperature heat:heat device:device withHandler:^(NSError *error) {
 		weakSelf.lastUnitCheck = nil;
 		[weakSelf updateUnitInfo];
 	}];

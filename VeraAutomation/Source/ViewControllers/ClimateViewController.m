@@ -13,7 +13,7 @@
 #import "VeraUnitInfo.h"
 #import "ClimateCell.h"
 
-@interface ClimateViewController ()
+@interface ClimateViewController () <ClimateCellDelegate>
 @property (nonatomic, strong) NSArray *devices;
 @end
 
@@ -60,6 +60,7 @@
 	}
 	
 	cell.device = device;
+	cell.delegate = self;
 	[cell setupCell];
 	
 	return cell;
@@ -69,6 +70,70 @@
 {
 	[self refreshRoom];
 	[self.collectionView reloadData];
+}
+
+- (void) setFanMode:(VeraFanMode) fanMode device:(VeraDevice *)device
+{
+	NSString *command = [NSString stringWithFormat:fanMode == VeraFanModeAuto ? NSLocalizedString(@"COMMAND_SENT_FAN_MODE_AUTO_%@", nil) :  NSLocalizedString(@"COMMAND_SENT_FAN_MODE_OFF_%@", nil), device.name];
+	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+												subtitle:command
+													type:TSMessageNotificationTypeSuccess];
+	[[VeraAutomationAppDelegate appDelegate] setFanMode:fanMode device:device];
+}
+
+- (void) setHVACMode:(VeraHVACMode) hvacMode device:(VeraDevice *)device
+{
+	NSString *command = nil;
+	switch (hvacMode)
+	{
+		case VeraHVACModeOff:
+		{
+			command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_HVAC_OFF_%@", nil), device.name];
+			break;
+		}
+			
+		case VeraHVACModeAuto:
+		{
+			command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_HVAC_AUTO_%@", nil), device.name];
+			break;
+		}
+			
+		case VeraHVACModeHeat:
+		{
+			command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_HVAC_HEAT_%@", nil), device.name];
+			break;
+		}
+			
+		case VeraHVACModeCool:
+		{
+			command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_HVAC_COOL_%@", nil), device.name];
+			break;
+		}
+			
+	}
+	
+	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+												subtitle:command
+													type:TSMessageNotificationTypeSuccess];
+	[[VeraAutomationAppDelegate appDelegate] setHVACMode:hvacMode device:device];
+}
+
+- (void) setHeatTemperature:(NSUInteger) temperature device:(VeraDevice *)device
+{
+	NSString *command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_HEAT_TEMPERATURE_%@_%ld", nil), device.name, temperature];
+	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+												subtitle:command
+													type:TSMessageNotificationTypeSuccess];
+	[[VeraAutomationAppDelegate appDelegate] setTemperature:temperature heat:YES device:device];
+}
+
+- (void) setCoolTemperature:(NSUInteger) temperature device:(VeraDevice *)device
+{
+	NSString *command = [NSString stringWithFormat:NSLocalizedString(@"COMMAND_SENT_COOL_TEMPERATURE_%@_%ld", nil), device.name, temperature];
+	[VeraAutomationAppDelegate showNotificationWithTitle:NSLocalizedString(@"COMMAND_SENT_TITLE", nil)
+												subtitle:command
+													type:TSMessageNotificationTypeSuccess];
+	[[VeraAutomationAppDelegate appDelegate] setTemperature:temperature heat:NO device:device];
 }
 
 
