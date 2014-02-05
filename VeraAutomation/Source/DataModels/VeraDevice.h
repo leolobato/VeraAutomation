@@ -13,7 +13,13 @@ typedef NS_ENUM(NSInteger, VeraDeviceTypeEnum) {
 	VeraDeviceTypeAudio				= 1,
 	VeraDeviceTypeThermostat		= 2,
 	VeraDeviceTypeLock				= 3,
-	VeraDeviceTypeScene				= 4 // A scene isn't a device, but it is convenient to put here
+	VeraDeviceTypeScene				= 4, // A scene isn't a device, but it is convenient to put here
+	VeraDeviceTypeSensor			= 5
+};
+
+typedef NS_ENUM(NSInteger, VeraDeviceSensorTypeEnum) {
+	VeraDeviceSensorTypeMotion		= 3,
+	VeraDeviceSensorTypeContact		= 1
 };
 
 typedef NS_ENUM(NSInteger, VeraFanMode) {

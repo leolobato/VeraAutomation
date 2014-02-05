@@ -290,7 +290,17 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 						
 						break;
 					}
+
+					case VeraDeviceTypeSensor:
+					{
+						if (device.category == 4)
+						{
+							[devices addObject:device];
+						}
 						
+						break;
+					}
+
 					default:
 					{
 						break;
