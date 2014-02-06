@@ -35,4 +35,4 @@
 "COMMAND_SENT_COOL_TEMPERATURE_%@_%ld" = "%@ cooling set to %ld.";
 "UNLOCKED_TITLE" = "Unlocked";
 "LOCKED_TITLE" = "Locked";
-
+"LOGOUT_TITLE" = "Logout";

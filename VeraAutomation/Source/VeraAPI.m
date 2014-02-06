@@ -689,6 +689,13 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	}
 }
 
+- (void) resetAPI
+{
+	self.unit = nil;
+	self.unitInfo = nil;
+}
+
+
 @end
 
 @implementation VeraUserResponseSerializer

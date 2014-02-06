@@ -47,6 +47,7 @@
 		D2AC0F6118517BF300D3AFD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AC0F6018517BF300D3AFD4 /* Images.xcassets */; };
 		D2AC0F6418517C0300D3AFD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AC0F6218517C0300D3AFD4 /* Localizable.strings */; };
 		D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AC0F6D18517EAF00D3AFD4 /* Defines.m */; };
+		D2CA99E518A34B2F00602879 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CA99E418A34B2F00602879 /* SettingsViewController.m */; };
 		D2D1226C1857F70D00A886F9 /* AudioRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D122651857F70D00A886F9 /* AudioRoomsViewController.m */; };
 		D2D1226D1857F70D00A886F9 /* AudioRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D122671857F70D00A886F9 /* AudioRoomViewController.m */; };
 		D2D1226E1857F70D00A886F9 /* RoomDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D122691857F70D00A886F9 /* RoomDevicesViewController.m */; };
@@ -130,6 +131,8 @@
 		D2AC0F6318517C0300D3AFD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2AC0F6518517CCA00D3AFD4 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		D2AC0F6D18517EAF00D3AFD4 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
+		D2CA99E318A34B2F00602879 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D2CA99E418A34B2F00602879 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		D2D122641857F70D00A886F9 /* AudioRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRoomsViewController.h; sourceTree = "<group>"; };
 		D2D122651857F70D00A886F9 /* AudioRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRoomsViewController.m; sourceTree = "<group>"; };
 		D2D122661857F70D00A886F9 /* AudioRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRoomViewController.h; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				D21FF4F9189EAB37007605FA /* ClimateViewController.m */,
 				D21FF4FB189EAB42007605FA /* LocksViewController.h */,
 				D21FF4FC189EAB42007605FA /* LocksViewController.m */,
+				D2CA99E318A34B2F00602879 /* SettingsViewController.h */,
+				D2CA99E418A34B2F00602879 /* SettingsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				D29FE2051853C0F700560018 /* DeviceCell.m in Sources */,
 				D29B51AD189EC0DA00780338 /* ClimateCell.m in Sources */,
 				D273113F1898B4D3003570B9 /* BaseCell.m in Sources */,
+				D2CA99E518A34B2F00602879 /* SettingsViewController.m in Sources */,
 				D29FE1F51853C0B700560018 /* VeraCategories.m in Sources */,
 				D29FE1FA1853C0B700560018 /* VeraSections.m in Sources */,
 				D2A3BD611896BEA700EAC24F /* ScenesRoomsViewController.m in Sources */,

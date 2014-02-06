@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 @property (nonatomic, strong) VeraUnitInfo *unitInfo;
 @property (nonatomic, strong) NSArray *deviceNamesToExclude;
 @property (nonatomic, strong) NSArray *sceneNamesToExclude;
+- (void) resetAPI;
 - (void) getVeraInformationWithHandler:(void (^)(NSError *error)) handler;
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler;
 - (VeraRoom *) roomWithIdentifier:(NSUInteger) identifier;

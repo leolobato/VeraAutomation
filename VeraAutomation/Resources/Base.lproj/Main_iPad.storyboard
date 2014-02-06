@@ -313,6 +313,7 @@
                         <segue destination="oWP-0f-AKK" kind="relationship" relationship="viewControllers" id="Tmb-To-Qla"/>
                         <segue destination="uro-kL-7DU" kind="relationship" relationship="viewControllers" id="Pch-EY-8TW"/>
                         <segue destination="Zki-9q-ptN" kind="relationship" relationship="viewControllers" id="yy4-6R-9qw"/>
+                        <segue destination="ss6-wN-AES" kind="relationship" relationship="viewControllers" id="Rum-Iu-yrv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSq-AA-VR0" sceneMemberID="firstResponder"/>
@@ -871,9 +872,48 @@
             </objects>
             <point key="canvasLocation" x="-1310" y="6016"/>
         </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="pVZ-N0-pbg">
+            <objects>
+                <viewController id="lI9-jG-nPf" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zkj-DF-45C"/>
+                        <viewControllerLayoutGuide type="bottom" id="OnR-cA-fCl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5k3-gN-nDX">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="mFd-nA-ctZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsO-l3-XY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-308" y="7361"/>
+        </scene>
+        <!--Navigation Controller - Settings-->
+        <scene sceneID="d8s-xs-d2Q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ss6-wN-AES" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" id="T0u-Ra-EPd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MMg-FW-A8k">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lI9-jG-nPf" kind="relationship" relationship="rootViewController" id="KaO-zy-I92"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-hy-uqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1282" y="7361"/>
+        </scene>
     </scenes>
     <resources>
         <image name="climate" width="29" height="29"/>
+        <image name="gear" width="29" height="29"/>
         <image name="lightbulb" width="29" height="29"/>
         <image name="lock" width="29" height="29"/>
         <image name="lock_large" width="40" height="40"/>

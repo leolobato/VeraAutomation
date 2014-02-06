@@ -40,6 +40,8 @@ Power icon by Amos and is in the public domain.
 
 Lock icon by Lea Verou and is in the public domain.
 
+Gear icon by Ryan Oksenhorn and is in the public domain.
+
 Source Code
 -
 [ActionSheetDelegate](https://github.com/woolsweater/ActionSheetDelegate) by [Joshua Caswell](woolsweatersoft@gmail.com) and is in the public domain.

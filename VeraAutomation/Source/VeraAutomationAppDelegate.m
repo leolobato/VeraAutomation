@@ -230,7 +230,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 		}
 	}];
 	
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LOGIN_TITLE", nil) message:NSLocalizedString(@"LOGIN_MESSAGE", nil) delegate:delegate cancelButtonTitle:NSLocalizedString(@"CANCEL_BUTTON_TITLE", nil) otherButtonTitles:NSLocalizedString(@"LOGIN_BUTTON_TITLE", nil), nil];
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LOGIN_TITLE", nil) message:NSLocalizedString(@"LOGIN_MESSAGE", nil) delegate:delegate cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"LOGIN_BUTTON_TITLE", nil), nil];
 	alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
 	[delegate associateSelfWithAlertView:alertView];
 	[alertView show];
