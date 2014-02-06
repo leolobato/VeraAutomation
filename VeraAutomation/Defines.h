@@ -18,7 +18,7 @@
 #define STRX(x)			x
 
 #define APP_VERSION_NUMBER				STRINGIFY(0.9.0)
-#define CF_BUNDLE_VERSION				STRINGIFY(8)
+#define CF_BUNDLE_VERSION				STRINGIFY(9)
 
 #ifndef INFO_PLIST
 

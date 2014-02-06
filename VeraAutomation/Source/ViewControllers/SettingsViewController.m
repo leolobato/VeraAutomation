@@ -54,7 +54,7 @@
 			
 		case 1:
 		{
-			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
+			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScenesToExcludeCell" forIndexPath:indexPath];
 			cell.textLabel.text = NSLocalizedString(@"SCENES_TO_EXCLUDE_TITLE", nil);
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			return cell;
@@ -77,7 +77,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	SettingsExcludeViewController *vc = segue.destinationViewController;
-	vc.showScenes = self.tableView.indexPathForSelectedRow.row == 1;
+	if ([segue.identifier isEqualToString:@"SceneToExcludeSegue"])
+	{
+		vc.showScenes = YES;
+	}
+	else
+	{
+		vc.showScenes = NO;
+	}
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender

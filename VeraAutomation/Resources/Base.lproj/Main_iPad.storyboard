@@ -934,6 +934,17 @@
                                             <segue destination="Y9S-TO-j9a" kind="push" identifier="ExclueSegue" id="bqI-ph-0Jn"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScenesToExcludeCell" id="k88-ls-v7B">
+                                        <rect key="frame" x="0.0" y="174" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k88-ls-v7B" id="4Jn-hX-60F">
+                                            <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Y9S-TO-j9a" kind="push" identifier="SceneToExcludeSegue" id="6Fq-F8-iKp"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="lI9-jG-nPf" id="O24-DI-NIl"/>
@@ -1014,4 +1025,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="6Fq-F8-iKp"/>
+    </inferredMetricsTieBreakers>
 </document>
