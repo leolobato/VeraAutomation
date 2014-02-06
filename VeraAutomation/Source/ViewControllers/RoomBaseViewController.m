@@ -45,13 +45,7 @@
 
 - (void) unitInfoChanged:(NSNotification *) notification
 {
-	[self.collectionView reloadData];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[self refreshRoom];
 }
 
 @end

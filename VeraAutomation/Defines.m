@@ -15,3 +15,5 @@ NSString *kDeviceUpdatedNotification = @"Device Updated Notification";
 
 NSString *kTabOrderDefault = @"Tab Order";
 NSString *kSelectedTabDefault = @"Selected Tab";
+
+NSString *kShowAudioTabDefault = @"Show Audio Tab";

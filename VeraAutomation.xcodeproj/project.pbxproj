@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		363A6CBEC52E42188D533D6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C222DC40E4365938179AE /* libPods.a */; };
-		D20E2376189223F20093BD42 /* Exclusions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20E2375189223F20093BD42 /* Exclusions.plist */; };
+		D209F0BF18A40520001FD266 /* BooleanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D209F0BE18A40520001FD266 /* BooleanTableViewCell.m */; };
 		D20E237818922B5B0093BD42 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D20E237718922B5B0093BD42 /* ToDo.txt */; };
 		D21FF4FA189EAB37007605FA /* ClimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21FF4F9189EAB37007605FA /* ClimateViewController.m */; };
 		D21FF4FD189EAB42007605FA /* LocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21FF4FC189EAB42007605FA /* LocksViewController.m */; };
 		D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24541731857F87500FE9C1A /* ActionSheetDelegate.m */; };
 		D245417C1857F87900FE9C1A /* AlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D245417B1857F87900FE9C1A /* AlertViewDelegate.m */; };
+		D24CC12E18A3EFDD00769709 /* SettingsExcludeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24CC12D18A3EFDD00769709 /* SettingsExcludeViewController.m */; };
 		D25023A3189A0048008C7073 /* OnDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D25023A2189A0048008C7073 /* OnDeviceCell.m */; };
 		D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D268281D1854322C0056620D /* AudioDeviceCell.m */; };
 		D27311391898AE36003570B9 /* SceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D27311381898AE36003570B9 /* SceneCell.m */; };
@@ -57,7 +58,8 @@
 /* Begin PBXFileReference section */
 		725C222DC40E4365938179AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		908E49C16F894407BB3D8A1C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D20E2375189223F20093BD42 /* Exclusions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exclusions.plist; sourceTree = "<group>"; };
+		D209F0BD18A40520001FD266 /* BooleanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanTableViewCell.h; sourceTree = "<group>"; };
+		D209F0BE18A40520001FD266 /* BooleanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanTableViewCell.m; sourceTree = "<group>"; };
 		D20E237718922B5B0093BD42 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		D21FF4F8189EAB37007605FA /* ClimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimateViewController.h; sourceTree = "<group>"; };
 		D21FF4F9189EAB37007605FA /* ClimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimateViewController.m; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		D24541731857F87500FE9C1A /* ActionSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDelegate.m; sourceTree = "<group>"; };
 		D245417A1857F87900FE9C1A /* AlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewDelegate.h; sourceTree = "<group>"; };
 		D245417B1857F87900FE9C1A /* AlertViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewDelegate.m; sourceTree = "<group>"; };
+		D24CC12C18A3EFDD00769709 /* SettingsExcludeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsExcludeViewController.h; sourceTree = "<group>"; };
+		D24CC12D18A3EFDD00769709 /* SettingsExcludeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsExcludeViewController.m; sourceTree = "<group>"; };
 		D25023A1189A0048008C7073 /* OnDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnDeviceCell.h; sourceTree = "<group>"; };
 		D25023A2189A0048008C7073 /* OnDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnDeviceCell.m; sourceTree = "<group>"; };
 		D268281C1854322C0056620D /* AudioDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDeviceCell.h; sourceTree = "<group>"; };
@@ -184,7 +188,6 @@
 				D2AC0F5D18517BED00D3AFD4 /* InfoPlist.strings */,
 				D2AC0F6018517BF300D3AFD4 /* Images.xcassets */,
 				D2AC0F6218517C0300D3AFD4 /* Localizable.strings */,
-				D20E2375189223F20093BD42 /* Exclusions.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -319,6 +322,8 @@
 				D29B51AC189EC0DA00780338 /* ClimateCell.m */,
 				D29B51AE189EC0E300780338 /* LockCell.h */,
 				D29B51AF189EC0E300780338 /* LockCell.m */,
+				D209F0BD18A40520001FD266 /* BooleanTableViewCell.h */,
+				D209F0BE18A40520001FD266 /* BooleanTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -350,6 +355,8 @@
 				D21FF4FC189EAB42007605FA /* LocksViewController.m */,
 				D2CA99E318A34B2F00602879 /* SettingsViewController.h */,
 				D2CA99E418A34B2F00602879 /* SettingsViewController.m */,
+				D24CC12C18A3EFDD00769709 /* SettingsExcludeViewController.h */,
+				D24CC12D18A3EFDD00769709 /* SettingsExcludeViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,7 +419,6 @@
 				D2AC0F6418517C0300D3AFD4 /* Localizable.strings in Resources */,
 				D2AC0F5C18517BE800D3AFD4 /* Main_iPhone.storyboard in Resources */,
 				D2AC0F6118517BF300D3AFD4 /* Images.xcassets in Resources */,
-				D20E2376189223F20093BD42 /* Exclusions.plist in Resources */,
 				D2AC0F5F18517BED00D3AFD4 /* InfoPlist.strings in Resources */,
 				D2AC0F5B18517BE800D3AFD4 /* Main_iPad.storyboard in Resources */,
 			);
@@ -479,8 +485,10 @@
 				D2A3BD641896BF1300EAC24F /* SceneViewController.m in Sources */,
 				D29FE2011853C0B700560018 /* VeraAutomationAppDelegate.m in Sources */,
 				D2D1226D1857F70D00A886F9 /* AudioRoomViewController.m in Sources */,
+				D24CC12E18A3EFDD00769709 /* SettingsExcludeViewController.m in Sources */,
 				D24541761857F87500FE9C1A /* ActionSheetDelegate.m in Sources */,
 				D268281E1854322C0056620D /* AudioDeviceCell.m in Sources */,
+				D209F0BF18A40520001FD266 /* BooleanTableViewCell.m in Sources */,
 				D29FE1F91853C0B700560018 /* VeraScene.m in Sources */,
 				D27311391898AE36003570B9 /* SceneCell.m in Sources */,
 				D2AC0F6E18517EAF00D3AFD4 /* Defines.m in Sources */,

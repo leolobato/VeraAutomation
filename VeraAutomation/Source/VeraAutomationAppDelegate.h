@@ -32,6 +32,7 @@
 - (void) setHVACMode:(VeraHVACMode) fanMode device:(VeraDevice *) device;
 - (void) setTemperature:(NSUInteger) temperature heat:(BOOL) heat device:(VeraDevice *) device;
 - (void) setLockState:(VeraDevice *) device locked:(BOOL) locked;
+- (void) showHideAudioTab;
 
 
 + (void) showNotificationWithTitle:(NSString *)title subtitle:(NSString *)subtitle type:(TSMessageNotificationType)type;

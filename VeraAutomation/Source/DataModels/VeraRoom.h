@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger roomIdentifier;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, strong) NSArray *devices; // Array of VeraDevice
+@property (nonatomic, strong) NSArray *scenes;
 
 + (VeraRoom *)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

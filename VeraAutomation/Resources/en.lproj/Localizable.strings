@@ -36,3 +36,6 @@
 "UNLOCKED_TITLE" = "Unlocked";
 "LOCKED_TITLE" = "Locked";
 "LOGOUT_TITLE" = "Logout";
+"DEVICES_TO_EXCLUDE_TITLE" = "Devices to exclude";
+"SCENES_TO_EXCLUDE_TITLE" = "Scenes to exclude";
+"SHOW_AUDIO_TAB" = "Show Audio Tab";

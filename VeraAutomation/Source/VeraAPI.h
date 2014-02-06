@@ -26,8 +26,8 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) VeraUnit *unit;
 @property (nonatomic, strong) VeraUnitInfo *unitInfo;
-@property (nonatomic, strong) NSArray *deviceNamesToExclude;
-@property (nonatomic, strong) NSArray *sceneNamesToExclude;
+@property (nonatomic, strong) NSArray *deviceIDsToExclude;
+@property (nonatomic, strong) NSArray *sceneIDsToExclude;
 - (void) resetAPI;
 - (void) getVeraInformationWithHandler:(void (^)(NSError *error)) handler;
 - (void) getUnitInformationWithHandler:(void (^)(NSError *error, BOOL fullReload)) handler;
@@ -45,5 +45,7 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (void) setLockState:(VeraDevice *) device locked:(BOOL) locked withHandler:(void (^)(NSError *error)) handler;
 
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType;
+- (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType excludeDevices:(BOOL) excludeDevices;
+- (void) saveExcludedDevicesAndScenes;
 @end
 

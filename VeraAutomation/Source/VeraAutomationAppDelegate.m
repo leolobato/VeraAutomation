@@ -10,6 +10,7 @@
 #import "ActionSheetDelegate.h"
 #import "AlertViewDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "AudioRoomsViewController.h"
 #import "VeraAPI.h"
 #import "VeraUnitInfo.h"
 #import "DDASLLogger.h"
@@ -23,6 +24,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (nonatomic, strong) NSDate *lastUnitCheck;
 @property (nonatomic, strong) NSTimer *periodicTimer;
 @property (nonatomic, assign) BOOL handlingLogin;
+@property (nonatomic, strong) NSArray *initialTabViewControllers;
 @end
 
 @implementation VeraAutomationAppDelegate
@@ -32,14 +34,6 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 	self.api = [[VeraAPI alloc] init];
 	
-	NSString *pathToExclusionsList = [[NSBundle mainBundle] pathForResource:@"Exclusions" ofType:@"plist"];
-	if ([pathToExclusionsList length])
-	{
-		NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:pathToExclusionsList];
-		self.api.deviceNamesToExclude = dict[@"Devices To Exclude"];
-		self.api.sceneNamesToExclude = dict[@"Scenes To Exclude"];
-	}
-
 	self.periodicTimer = [NSTimer scheduledTimerWithTimeInterval:sTimeForCheck target:self selector:@selector(updateUnitInfo) userInfo:nil repeats:YES];
 	[self performSelector:@selector(handleLogin) withObject:nil afterDelay:1.0f];
 
@@ -52,6 +46,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 	UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
 	tabBarController.delegate = self;
+	self.initialTabViewControllers = tabBarController.viewControllers;
 	NSString *selectedVCString = [[NSUserDefaults standardUserDefaults] stringForKey:kSelectedTabDefault];
 	if ([selectedVCString length])
 	{
@@ -100,6 +95,8 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 	
 	tabBarController.viewControllers = newViewControllerArray;
+	
+	[self showHideAudioTab];
 	
 	return YES;
 }
@@ -179,6 +176,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	{
 		self.api.username = username;
 		self.api.password = password;
+
 		[self.api getVeraInformationWithHandler:^(NSError *error) {
 			if (error)
 			{
@@ -194,6 +192,102 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	else
 	{
 		[self presentLogin];
+	}
+}
+
+- (void) showHideAudioTab
+{
+	BOOL show = [[NSUserDefaults standardUserDefaults] boolForKey:kShowAudioTabDefault];
+	
+	UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
+	NSMutableArray *newViewControllerArray = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
+	NSUInteger indexToRemove = NSNotFound;
+	for (NSUInteger index = 0; index < [newViewControllerArray count]; index++)
+	{
+		UIViewController *vc = newViewControllerArray[index];
+		if ([vc isKindOfClass:[UINavigationController class]])
+		{
+			vc = ((UINavigationController *) vc).topViewController;
+		}
+		
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+		{
+			if ([vc isKindOfClass:[UISplitViewController class]])
+			{
+				for (UIViewController *viewController in ((UISplitViewController *) vc).viewControllers)
+				{
+					UIViewController *controller = viewController;
+					if ([controller isKindOfClass:[UINavigationController class]])
+					{
+						controller = ((UINavigationController *) controller).topViewController;
+					}
+					
+					if ([controller isKindOfClass:[AudioRoomsViewController class]])
+					{
+						indexToRemove = index;
+						break;
+					}
+				}
+			}
+		}
+		else if ([vc isKindOfClass:[AudioRoomsViewController class]])
+		{
+			indexToRemove = index;
+			break;
+		}
+	}
+	
+	if (indexToRemove != NSNotFound && !show)
+	{
+		[newViewControllerArray removeObjectAtIndex:indexToRemove];
+		[tabBarController setViewControllers:newViewControllerArray animated:YES];
+	}
+	else if (indexToRemove == NSNotFound && show)
+	{
+		// Have to add it in
+		// Look for the audio view controller in our view controllers
+		
+		for (UIViewController *viewController in self.initialTabViewControllers)
+		{
+			UIViewController *vc = viewController;
+			if ([vc isKindOfClass:[UINavigationController class]])
+			{
+				vc = ((UINavigationController *) vc).topViewController;
+			}
+			
+			if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			{
+				if ([vc isKindOfClass:[UISplitViewController class]])
+				{
+					for (UIViewController *viewController in ((UISplitViewController *) vc).viewControllers)
+					{
+						UIViewController *controller = viewController;
+						if ([controller isKindOfClass:[UINavigationController class]])
+						{
+							controller = ((UINavigationController *) controller).topViewController;
+						}
+						
+						if ([controller isKindOfClass:[AudioRoomsViewController class]])
+						{
+							[newViewControllerArray addObject:vc];
+							[tabBarController setViewControllers:newViewControllerArray animated:YES];
+							[tabBarController.moreNavigationController.view setNeedsDisplay];
+							break;
+						}
+					}
+				}
+			}
+			else if ([vc isKindOfClass:[AudioRoomsViewController class]])
+			{
+				if ([vc.parentViewController isKindOfClass:[UINavigationController class]])
+				{
+					[newViewControllerArray addObject:vc];
+					[tabBarController setViewControllers:newViewControllerArray animated:YES];
+					[tabBarController.moreNavigationController.view setNeedsDisplay];
+				}
+				break;
+			}
+		}
 	}
 }
 
@@ -213,7 +307,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 				
 				self.api.username = username;
 				self.api.password = password;
-
+				
 				[weakSelf.api getVeraInformationWithHandler:^(NSError *error) {
 					[weakSelf updateUnitInfo];
 					weakSelf.handlingLogin = NO;

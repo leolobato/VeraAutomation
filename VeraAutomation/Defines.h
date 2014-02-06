@@ -18,7 +18,7 @@
 #define STRX(x)			x
 
 #define APP_VERSION_NUMBER				STRINGIFY(0.9.0)
-#define CF_BUNDLE_VERSION				STRINGIFY(7)
+#define CF_BUNDLE_VERSION				STRINGIFY(8)
 
 #ifndef INFO_PLIST
 
@@ -30,6 +30,8 @@ extern NSString *kDeviceUpdatedNotification;
 
 extern NSString *kTabOrderDefault;
 extern NSString *kSelectedTabDefault;
+
+extern NSString *kShowAudioTabDefault;
 #endif
 
 #endif

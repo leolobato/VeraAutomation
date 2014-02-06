@@ -337,6 +337,7 @@ NSString *const kVeraUnitInfoRooms = @"rooms";
 		device.heatTemperatureSetPoint = newDevice.heatTemperatureSetPoint;
 		device.coolTemperatureSetPoint = newDevice.coolTemperatureSetPoint;
 		device.hvacMode = newDevice.hvacMode;
+		device.locked = newDevice.locked;
 	}
 }
 

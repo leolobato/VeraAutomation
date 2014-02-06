@@ -124,6 +124,7 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			if (responseObject.full || weakSelf.unitInfo == nil)
 			{
 				weakSelf.unitInfo = responseObject;
+				[weakSelf setupExcludedDevicesAndScenes];
 				fullReload = YES;
 			}
 			else
@@ -167,6 +168,71 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	}
 }
 
+- (void) setupExcludedDevicesAndScenes
+{
+	NSString *excludePath = [self pathToExcludeFile];
+	if ([excludePath length])
+	{
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:excludePath];
+		self.deviceIDsToExclude = dict[@"devicesToExclude"];
+		self.sceneIDsToExclude = dict[@"scenesToExclude"];
+	}
+}
+
+- (void) saveExcludedDevicesAndScenes
+{
+	NSMutableDictionary *dict = [NSMutableDictionary new];
+	if (self.deviceIDsToExclude)
+	{
+		dict[@"devicesToExclude"] = self.deviceIDsToExclude;
+	}
+
+	if (self.sceneIDsToExclude)
+	{
+		dict[@"scenesToExclude"] = self.sceneIDsToExclude;
+	}
+	
+	NSString *excludePath = [self pathToExcludeFile];
+	if ([excludePath length])
+	{
+		[dict writeToFile:excludePath atomically:YES];
+	}
+}
+
+- (NSString *) pathToExcludeFile
+{
+	NSString *serialNumber = self.unitInfo.serialNumber;
+	NSString *configDirectory = [self configDirectory];
+	if ([serialNumber length] && [configDirectory length])
+	{
+		serialNumber = [serialNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		NSString *path = [configDirectory stringByAppendingPathComponent:serialNumber];
+		path = [path stringByAppendingPathExtension:@"plist"];
+		return path;
+	}
+	
+	return nil;
+}
+
+- (NSString *) configDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *configDirectory = [baseDir stringByAppendingPathComponent:@"UnitConfigurations"];
+	if (![[NSFileManager defaultManager] fileExistsAtPath:configDirectory])
+	{
+        NSError *err = nil;
+        if (![[NSFileManager defaultManager] createDirectoryAtPath:configDirectory
+                                       withIntermediateDirectories:YES attributes:nil error:&err])
+        {
+            NSLog(@"Error creating config directory: %@", err);
+        }
+	}
+	
+	return configDirectory;
+}
+
+
 - (void) checkForOperationCompletion:(AFHTTPRequestOperation *) operation
 {
 	[self checkForOperationCompletion:operation withTimeout:30];
@@ -206,6 +272,11 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType
 {
+	return [self devicesForRoom:inRoom forType:deviceType excludeDevices:YES];
+}
+
+- (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType excludeDevices:(BOOL) excludeDevices
+{
 	NSMutableArray *devices = [NSMutableArray array];
 	if (deviceType == VeraDeviceTypeScene)
 	{
@@ -214,13 +285,9 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 			if (scene.room == inRoom.roomIdentifier)
 			{
 				BOOL addScene = YES;
-				for (NSString *excludeString in self.sceneNamesToExclude)
+				if (excludeDevices && self.sceneIDsToExclude && [self.sceneIDsToExclude containsObject:[NSNumber numberWithInteger:scene.sceneIdentifier]])
 				{
-					if ([scene.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
-					{
-						addScene = NO;
-						break;
-					}
+					addScene = NO;
 				}
 				
 				if (addScene)
@@ -246,15 +313,11 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 					case VeraDeviceTypeSwitch:
 					{
 						BOOL addDevice = YES;
-						for (NSString *excludeString in self.deviceNamesToExclude)
+						if (excludeDevices && self.deviceIDsToExclude && [self.deviceIDsToExclude containsObject:[NSNumber numberWithInteger:device.deviceIdentifier]])
 						{
-							if ([device.name rangeOfString:excludeString options:NSCaseInsensitiveSearch].location != NSNotFound)
-							{
-								addDevice = NO;
-								break;
-							}
+							addDevice = NO;
 						}
-						
+
 						if (addDevice &&  (device.category == 3 || device.category == 2))
 						{
 							[devices addObject:device];
@@ -693,6 +756,8 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 {
 	self.unit = nil;
 	self.unitInfo = nil;
+	self.deviceIDsToExclude = nil;
+	self.sceneIDsToExclude = nil;
 }
 
 
