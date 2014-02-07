@@ -1,7 +1,7 @@
 VeraAutomation
 ==========
 
-This is a basic iOS app for controlling a Vera automation system. It was designed around my personal VeraLite setup and not all parts will work for everyone. The Audio control part only works with a custom Vera plugin that I wrote to talk to my Russound audio units over TCP/IP. I have also added code to ignore certain devices that I don't want shown; modify Exclusions.plist for the devices you want to ignore. The code does a substring match to items in the list.
+This is a basic iOS app for controlling a Vera automation system. It was designed around my personal VeraLite setup and not all parts will work for everyone. The Audio control part only works with a custom Vera plugin that I wrote to talk to my Russound audio units over TCP/IP. You can also set which devices and scenes to exclude using the Settings tab.
 
 This is a work in progress. The app works on the iPhone and iPad. I use the app everyday and it works pretty well in my setup.
 
@@ -59,8 +59,6 @@ Source Code
 ToDo
 ==============
 * Fix issues where login prompt comes up on failed connection
-* Add in controlling locks
-* Add in tab that shows devices that are on
 
 License
 ==========
