@@ -15,6 +15,7 @@
 #import "VeraUnitInfo.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
+#import "AFNetworkReachabilityManager.h"
 
 static NSTimeInterval sTimeForCheck = 4.0f;
 
@@ -25,12 +26,14 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (nonatomic, strong) NSTimer *periodicTimer;
 @property (nonatomic, assign) BOOL handlingLogin;
 @property (nonatomic, strong) NSArray *initialTabViewControllers;
+@property (nonatomic, assign) AFNetworkReachabilityStatus currentReachability;
 @end
 
 @implementation VeraAutomationAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	self.currentReachability = AFNetworkReachabilityStatusUnknown;
 	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 	self.api = [[VeraAPI alloc] init];
 	
@@ -98,6 +101,35 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	[self showHideAudioTab];
 	
+	typeof(self) __weak weakSelf = self;
+	[[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
+	{
+		BOOL needToCancel = NO;
+		// If we have a real reachability state, see what it is.
+		if (status != AFNetworkReachabilityStatusUnknown)
+		{
+			// If the prior reachability state was something and it has changed,
+			// we need to cancel the operations.
+			if (weakSelf.currentReachability != AFNetworkReachabilityStatusUnknown && status != weakSelf.currentReachability)
+			{
+				needToCancel = YES;
+			}
+
+			if (status == AFNetworkReachabilityStatusNotReachable)
+			{
+				needToCancel = YES;
+			}
+
+			weakSelf.currentReachability = status;
+		}
+		
+		if (needToCancel)
+		{
+			DebugLog(@"Cancelling all operations because the network is unreachable.");
+			[weakSelf.api cancelAllOperations];
+		}
+		DebugLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+	}];
 	return YES;
 }
 

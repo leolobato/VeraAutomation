@@ -760,6 +760,10 @@ NSString *kVeraAPIErrorDomain = @"VeraErrorDomain";
 	self.sceneIDsToExclude = nil;
 }
 
+- (void) cancelAllOperations
+{
+	[[VeraHTTPOperationManager manager].operationQueue cancelAllOperations];
+}
 
 @end
 

@@ -47,5 +47,6 @@ typedef NS_ENUM(NSInteger, VeraAPIErroCode) {
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType;
 - (NSArray *) devicesForRoom:(VeraRoom *) inRoom forType:(VeraDeviceTypeEnum) deviceType excludeDevices:(BOOL) excludeDevices;
 - (void) saveExcludedDevicesAndScenes;
+- (void) cancelAllOperations;
 @end
 
