@@ -39,3 +39,5 @@
 "DEVICES_TO_EXCLUDE_TITLE" = "Devices to exclude";
 "SCENES_TO_EXCLUDE_TITLE" = "Scenes to exclude";
 "SHOW_AUDIO_TAB" = "Show Audio Tab";
+"ON_TEXT" = "On";
+"OFF_TEXT" = "Off";

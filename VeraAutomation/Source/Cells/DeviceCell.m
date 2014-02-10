@@ -35,7 +35,7 @@
 	self.layer.cornerRadius = 5.0f;
 
 	self.deviceNameLabel.text = self.device.name;
-	self.statusLabel.text = [NSString stringWithFormat:@"Status: %ld", (long)self.device.status];
+	self.statusLabel.text = self.device.status == 1 ? NSLocalizedString(@"ON_TEXT", nil) : NSLocalizedString(@"OFF_TEXT", nil);
 	
 	if (self.device.category == 3)
 	{
