@@ -61,6 +61,17 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 			{
 				viewController = ((UINavigationController *) vc).topViewController;
 			}
+			else if ([vc isKindOfClass:[UISplitViewController class]])
+			{
+				for (UIViewController *splitVC in ((UISplitViewController *) vc).viewControllers)
+				{
+					if ([splitVC isKindOfClass:[UINavigationController class]])
+					{
+						viewController = ((UINavigationController *) splitVC).topViewController;
+						break;
+					}
+				}
+			}
 			
 			NSString *vcClass = NSStringFromClass([viewController class]);
 			if (vcClass && [vcClass isEqualToString:selectedVCString])
@@ -159,6 +170,17 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 	if ([viewController isKindOfClass:[UINavigationController class]])
 	{
 		viewController = ((UINavigationController *) viewController).topViewController;
+	}
+	else if ([viewController isKindOfClass:[UISplitViewController class]])
+	{
+		for (UIViewController *vc in ((UISplitViewController *) viewController).viewControllers)
+		{
+			if ([vc isKindOfClass:[UINavigationController class]])
+			{
+				viewController = ((UINavigationController *) vc).topViewController;
+				break;
+			}
+		}
 	}
 	NSString *vcClass = NSStringFromClass([viewController class]);
 	[[NSUserDefaults standardUserDefaults] setObject:vcClass forKey:kSelectedTabDefault];
